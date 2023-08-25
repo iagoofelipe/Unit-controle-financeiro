@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="start">
+    <file>img/alerta.png</file>
+    <file>img/logo_pedras_vivas_maior.png</file>
+  </qresource>
+  <qresource prefix="login">
+    <file>img/login/logo_pedras_vivas.png</file>
+    <file>img/login/logo_unit.png</file>
+    <file>img/login/padlock.png</file>
+    <file>img/login/user.png</file>
+  </qresource>
+</RCC>
