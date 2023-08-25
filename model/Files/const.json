@@ -1,0 +1,18 @@
+{
+    "login":{
+        "password":"1234",
+        "remember":true,
+        "user":"IAGO"
+    },
+    "registros":{
+        "categoria_entradas":[
+            "GRUPO FOCUS",
+            "OUTROS"
+        ],
+        "categoria_saidas":[
+            "SALÁRIOS",
+            "INSUMOS",
+            "OUTROS"
+        ]
+    }
+}

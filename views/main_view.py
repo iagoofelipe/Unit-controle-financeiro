@@ -1,15 +1,17 @@
 # módulos python
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QComboBox
 from PySide6.QtCore import Slot, QTimer
+from typing import Iterable
 
 # módulos locais
 from .ui import *
 from .Login import Login
-from .Matriculas import Matriculas
+from .Matriculas_view import Matriculas_view
 from model.model import Model
 from controllers.main_ctrl import MainController
+from .app import App
 
-class MainView(QMainWindow):
+class MainView(QMainWindow, App):
     def __init__(self, model: Model, main_controller: MainController):
         super().__init__()
         # atributos iniciais
@@ -67,7 +69,7 @@ class MainView(QMainWindow):
                 self._ui = Login(self)
                 
             case "Matriculas":
-                self._ui = Matriculas(self)
+                self._ui = Matriculas_view(self)
             
             case _:
                 self._ui = ui()
@@ -78,5 +80,4 @@ class MainView(QMainWindow):
         
         if start:
             self._ui.start()
-        
     #-------------------------------------------------------------------------------

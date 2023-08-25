@@ -16,11 +16,12 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QDateEdit, QDoubleSpinBox,
-    QFrame, QGridLayout, QGroupBox, QHBoxLayout,
-    QLabel, QLineEdit, QListView, QMainWindow,
-    QMenu, QMenuBar, QPushButton, QRadioButton,
-    QSizePolicy, QSpacerItem, QStatusBar, QTabWidget,
+from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QDateEdit,
+    QDoubleSpinBox, QFrame, QGridLayout, QGroupBox,
+    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
+    QListView, QMainWindow, QMenu, QMenuBar,
+    QPushButton, QRadioButton, QSizePolicy, QSpacerItem,
+    QStatusBar, QTabWidget, QTableWidget, QTableWidgetItem,
     QTextEdit, QVBoxLayout, QWidget)
 from . import qrc_rc
 
@@ -28,8 +29,8 @@ class Ui_Matriculas(object):
     def setupUi(self, Matriculas):
         if not Matriculas.objectName():
             Matriculas.setObjectName(u"Matriculas")
-        Matriculas.resize(1100, 700)
-        Matriculas.setMinimumSize(QSize(1100, 700))
+        Matriculas.resize(900, 700)
+        Matriculas.setMinimumSize(QSize(900, 700))
         Matriculas.setStyleSheet(u"")
         self.actionlembrar = QAction(Matriculas)
         self.actionlembrar.setObjectName(u"actionlembrar")
@@ -42,7 +43,7 @@ class Ui_Matriculas(object):
         self.menu_sair.setObjectName(u"menu_sair")
         self.centralwidget = QWidget(Matriculas)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setStyleSheet(u"background-color: rgb(212, 213, 205);")
+        self.centralwidget.setStyleSheet(u"")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -86,7 +87,7 @@ class Ui_Matriculas(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.user_png = QLabel(self.widget_5)
         self.user_png.setObjectName(u"user_png")
-        self.user_png.setPixmap(QPixmap(u":/registros/03_registros/user_wt.png"))
+        self.user_png.setPixmap(QPixmap(u":/matriculas/img/matriculas/user_wt.png"))
         self.user_png.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout.addWidget(self.user_png)
@@ -129,7 +130,7 @@ class Ui_Matriculas(object):
         self.btn_sair.setLayoutDirection(Qt.LeftToRight)
         self.btn_sair.setStyleSheet(u"")
         icon = QIcon()
-        icon.addFile(u":/registros/03_registros/sair.png", QSize(), QIcon.Normal, QIcon.On)
+        icon.addFile(u":/matriculas/img/matriculas/sair.png", QSize(), QIcon.Normal, QIcon.On)
         self.btn_sair.setIcon(icon)
         self.btn_sair.setIconSize(QSize(41, 36))
         self.btn_sair.setFlat(True)
@@ -143,7 +144,7 @@ class Ui_Matriculas(object):
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(84, 0))
         self.label.setLayoutDirection(Qt.RightToLeft)
-        self.label.setPixmap(QPixmap(u":/login/01_login/logo_pedras_vivas.png"))
+        self.label.setPixmap(QPixmap(u":/login/img/login/logo_pedras_vivas.png"))
 
         self.verticalLayout_2.addWidget(self.label)
 
@@ -153,18 +154,12 @@ class Ui_Matriculas(object):
         self.wid_principal = QWidget(self.container)
         self.wid_principal.setObjectName(u"wid_principal")
         self.wid_principal.setMaximumSize(QSize(16777215, 16777215))
-        self.wid_principal.setStyleSheet(u"")
+        self.wid_principal.setStyleSheet(u"QTextEdit:hover {\n"
+"	background-color: #e5e5e5;\n"
+"}")
         self.gridLayout_5 = QGridLayout(self.wid_principal)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(-1, -1, -1, 31)
-        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_5.addItem(self.verticalSpacer_4, 2, 1, 1, 1)
-
-        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_5.addItem(self.verticalSpacer_5, 0, 1, 1, 1)
-
         self.tabWidget = QTabWidget(self.wid_principal)
         self.tabWidget.setObjectName(u"tabWidget")
         self.tabWidget.setMaximumSize(QSize(16777215, 16777215))
@@ -615,14 +610,32 @@ class Ui_Matriculas(object):
         self.tab_registros_4.setObjectName(u"tab_registros_4")
         self.gridLayout_11 = QGridLayout(self.tab_registros_4)
         self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.widget_8 = QWidget(self.tab_registros_4)
+        self.widget_8.setObjectName(u"widget_8")
+        self.verticalLayout_4 = QVBoxLayout(self.widget_8)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.reg_mes_filtro = QComboBox(self.widget_8)
+        self.reg_mes_filtro.setObjectName(u"reg_mes_filtro")
+
+        self.verticalLayout_4.addWidget(self.reg_mes_filtro)
+
+        self.reg_table = QTableWidget(self.widget_8)
+        self.reg_table.setObjectName(u"reg_table")
+        self.reg_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContentsOnFirstShow)
+
+        self.verticalLayout_4.addWidget(self.reg_table)
+
+
+        self.gridLayout_11.addWidget(self.widget_8, 1, 1, 1, 1)
+
         self.widget_entradas = QWidget(self.tab_registros_4)
         self.widget_entradas.setObjectName(u"widget_entradas")
-        self.widget_entradas.setMaximumSize(QSize(400, 431))
+        self.widget_entradas.setMaximumSize(QSize(530, 16777215))
         self.verticalLayout_8 = QVBoxLayout(self.widget_entradas)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.groupBox = QGroupBox(self.widget_entradas)
         self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setStyleSheet(u"QGroupBox{color: rgb(104, 104, 104);}")
+        self.groupBox.setStyleSheet(u"")
         self.gridLayout_8 = QGridLayout(self.groupBox)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.gridLayout_8.setVerticalSpacing(25)
@@ -650,12 +663,7 @@ class Ui_Matriculas(object):
 
         self.reg_data = QDateEdit(self.groupBox)
         self.reg_data.setObjectName(u"reg_data")
-        self.reg_data.setStyleSheet(u"QDateEdit {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"}\n"
-"\n"
-"QDateEdit:hover {\n"
+        self.reg_data.setStyleSheet(u"QDateEdit:hover {\n"
 "	background-color: #e5e5e5;\n"
 "}")
         self.reg_data.setAlignment(Qt.AlignCenter)
@@ -667,12 +675,7 @@ class Ui_Matriculas(object):
         self.reg_valor.setObjectName(u"reg_valor")
         sizePolicy.setHeightForWidth(self.reg_valor.sizePolicy().hasHeightForWidth())
         self.reg_valor.setSizePolicy(sizePolicy)
-        self.reg_valor.setStyleSheet(u"QDoubleSpinBox {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"}\n"
-"\n"
-"QDoubleSpinBox:hover {\n"
+        self.reg_valor.setStyleSheet(u"QDoubleSpinBox:hover {\n"
 "	background-color: #e5e5e5;\n"
 "}")
         self.reg_valor.setAlignment(Qt.AlignCenter)
@@ -687,14 +690,7 @@ class Ui_Matriculas(object):
         self.reg_categoria.setObjectName(u"reg_categoria")
         sizePolicy.setHeightForWidth(self.reg_categoria.sizePolicy().hasHeightForWidth())
         self.reg_categoria.setSizePolicy(sizePolicy)
-        self.reg_categoria.setStyleSheet(u"QComboBox {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"}\n"
-"\n"
-"QComboBox:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
+        self.reg_categoria.setStyleSheet(u"")
         self.reg_categoria.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
 
         self.gridLayout_8.addWidget(self.reg_categoria, 4, 1, 1, 1)
@@ -708,15 +704,7 @@ class Ui_Matriculas(object):
 
         self.reg_descricao = QTextEdit(self.groupBox)
         self.reg_descricao.setObjectName(u"reg_descricao")
-        self.reg_descricao.setStyleSheet(u"QTextEdit {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"	border-radius: 10px;\n"
-"}\n"
-"\n"
-"QTextEdit:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
+        self.reg_descricao.setStyleSheet(u"")
 
         self.gridLayout_8.addWidget(self.reg_descricao, 5, 1, 1, 1)
 
@@ -781,128 +769,19 @@ class Ui_Matriculas(object):
 
         self.verticalLayout_8.addWidget(self.btn)
 
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_11.addWidget(self.widget_entradas, 1, 1, 1, 1)
+        self.verticalLayout_8.addItem(self.verticalSpacer_2)
 
-        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_11.addItem(self.horizontalSpacer_7, 1, 0, 1, 1)
-
-        self.horizontalSpacer_9 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_11.addItem(self.horizontalSpacer_9, 1, 2, 1, 1)
+        self.gridLayout_11.addWidget(self.widget_entradas, 1, 0, 1, 1)
 
         self.tabWidget.addTab(self.tab_registros_4, "")
 
-        self.gridLayout_5.addWidget(self.tabWidget, 1, 1, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer, 1, 2, 1, 1)
-
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_5.addItem(self.horizontalSpacer_2, 1, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.tabWidget, 0, 1, 1, 1)
 
 
         self.gridLayout_6.addWidget(self.wid_principal, 0, 1, 1, 1)
-
-        self.wid_valores = QWidget(self.container)
-        self.wid_valores.setObjectName(u"wid_valores")
-        self.wid_valores.setMinimumSize(QSize(200, 0))
-        self.wid_valores.setMaximumSize(QSize(16777215, 16777215))
-        self.verticalLayout_6 = QVBoxLayout(self.wid_valores)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalSpacer_7 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_6.addItem(self.verticalSpacer_7)
-
-        self.widget_12 = QWidget(self.wid_valores)
-        self.widget_12.setObjectName(u"widget_12")
-        font3 = QFont()
-        font3.setFamilies([u"Yu Gothic UI Semibold"])
-        self.widget_12.setFont(font3)
-        self.widget_12.setStyleSheet(u"background-color: rgb(165, 166, 159);\n"
-"border-radius: 15;\n"
-"color: rgb(255, 255, 255)")
-        self.verticalLayout_4 = QVBoxLayout(self.widget_12)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.wid_valor_matriculas_ativas = QLabel(self.widget_12)
-        self.wid_valor_matriculas_ativas.setObjectName(u"wid_valor_matriculas_ativas")
-        font4 = QFont()
-        font4.setFamilies([u"Yu Gothic UI Semibold"])
-        font4.setPointSize(44)
-        self.wid_valor_matriculas_ativas.setFont(font4)
-        self.wid_valor_matriculas_ativas.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_4.addWidget(self.wid_valor_matriculas_ativas)
-
-        self.label_2 = QLabel(self.widget_12)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font3)
-        self.label_2.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_4.addWidget(self.label_2)
-
-
-        self.verticalLayout_6.addWidget(self.widget_12)
-
-        self.widget_13 = QWidget(self.wid_valores)
-        self.widget_13.setObjectName(u"widget_13")
-        self.widget_13.setFont(font3)
-        self.widget_13.setStyleSheet(u"background-color: rgb(165, 166, 159);\n"
-"border-radius: 15;\n"
-"color: rgb(255, 255, 255)")
-        self.verticalLayout_5 = QVBoxLayout(self.widget_13)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.wid_valor_men_pendentes = QLabel(self.widget_13)
-        self.wid_valor_men_pendentes.setObjectName(u"wid_valor_men_pendentes")
-        self.wid_valor_men_pendentes.setFont(font4)
-        self.wid_valor_men_pendentes.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_5.addWidget(self.wid_valor_men_pendentes)
-
-        self.label_5 = QLabel(self.widget_13)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setFont(font3)
-        self.label_5.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_5.addWidget(self.label_5)
-
-
-        self.verticalLayout_6.addWidget(self.widget_13)
-
-        self.widget_15 = QWidget(self.wid_valores)
-        self.widget_15.setObjectName(u"widget_15")
-        self.widget_15.setFont(font3)
-        self.widget_15.setStyleSheet(u"background-color: rgb(165, 166, 159);\n"
-"border-radius: 15;\n"
-"color: rgb(255, 255, 255)")
-        self.verticalLayout_7 = QVBoxLayout(self.widget_15)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
-        self.wid_valor_men_inadimplentes = QLabel(self.widget_15)
-        self.wid_valor_men_inadimplentes.setObjectName(u"wid_valor_men_inadimplentes")
-        self.wid_valor_men_inadimplentes.setFont(font4)
-        self.wid_valor_men_inadimplentes.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_7.addWidget(self.wid_valor_men_inadimplentes)
-
-        self.label_7 = QLabel(self.widget_15)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setFont(font3)
-        self.label_7.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_7.addWidget(self.label_7)
-
-
-        self.verticalLayout_6.addWidget(self.widget_15)
-
-        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_6.addItem(self.verticalSpacer_6)
-
-
-        self.gridLayout_6.addWidget(self.wid_valores, 0, 2, 1, 1)
 
 
         self.horizontalLayout_2.addWidget(self.container)
@@ -919,7 +798,7 @@ class Ui_Matriculas(object):
         Matriculas.setCentralWidget(self.centralwidget)
         self.menuBar = QMenuBar(Matriculas)
         self.menuBar.setObjectName(u"menuBar")
-        self.menuBar.setGeometry(QRect(0, 0, 1100, 21))
+        self.menuBar.setGeometry(QRect(0, 0, 900, 21))
         self.menuBar.setStyleSheet(u"QMenu:hover {background-color:\"lightgray\";}")
         self.menusair = QMenu(self.menuBar)
         self.menusair.setObjectName(u"menusair")
@@ -968,7 +847,7 @@ class Ui_Matriculas(object):
         self.retranslateUi(Matriculas)
 
         self.btn_sair.setDefault(False)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(Matriculas)
@@ -1078,15 +957,6 @@ class Ui_Matriculas(object):
         self.label_3.setText(QCoreApplication.translate("Matriculas", u"Tipo de Registro:", None))
         self.btn_registrar.setText(QCoreApplication.translate("Matriculas", u"registrar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_registros_4), QCoreApplication.translate("Matriculas", u"Registros", None))
-        self.wid_valor_matriculas_ativas.setText(QCoreApplication.translate("Matriculas", u"45", None))
-        self.label_2.setText(QCoreApplication.translate("Matriculas", u"MATR\u00cdCULAS\n"
-"ATIVAS", None))
-        self.wid_valor_men_pendentes.setText(QCoreApplication.translate("Matriculas", u"10", None))
-        self.label_5.setText(QCoreApplication.translate("Matriculas", u"MENSALIDADES\n"
-"PENDENTES", None))
-        self.wid_valor_men_inadimplentes.setText(QCoreApplication.translate("Matriculas", u"4", None))
-        self.label_7.setText(QCoreApplication.translate("Matriculas", u"MENSALIDADES\n"
-"VENCIDAS/INADIMPLENTES", None))
         self.menusair.setTitle(QCoreApplication.translate("Matriculas", u"Op\u00e7\u00f5es", None))
     # retranslateUi
 

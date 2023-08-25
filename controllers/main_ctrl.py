@@ -5,10 +5,11 @@ from PySide6.QtCore import QObject, Slot, QThreadPool
 from .src.Database.main import Database
 from .src.qthread import Worker
 from model.model import Model
+from .Matriculas_ctrl import MatriculasController
 
-class MainController(QObject):
+class MainController(QObject, MatriculasController):
     def __init__(self, model: Model):
-        super().__init__()
+        super(MainController, self).__init__()
         self._model = model
         self.threadpool = QThreadPool()
         self.db = Database()
@@ -42,3 +43,11 @@ class MainController(QObject):
     def run_thread(self, slot, *args, **kwargs):
         worker = Worker(slot, *args, **kwargs)
         self.threadpool.start(worker)
+
+    @Slot(object)
+    def logout(self, master):
+        self._model.user = "USUARIO"
+        self._model.password = ""
+        self._model.remember = False
+
+        master.changeUi(objectName="Login")

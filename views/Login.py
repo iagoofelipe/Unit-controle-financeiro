@@ -18,6 +18,13 @@ class Login(Ui_Login):
         self.btn_login.clicked.connect(self.btn_loginAction)
         self.login_entry_password.returnPressed.connect(self.btn_loginAction)
 
+        # caso de login automatico (remember me)
+        if self._model._remember:
+            self.login_entry_user.setText(self._model.user)
+            self.login_entry_password.setText(self._model.password)
+            self.login_check_lembrar.setChecked(True)
+            self.btn_loginAction()
+
 
     def btn_loginAction(self):
         self._model.user = self.login_entry_user.text()
@@ -29,8 +36,10 @@ class Login(Ui_Login):
         se_lembrar = self.login_check_lembrar.isChecked()
         if value:
             if se_lembrar:
+                self._model.remember = True
                 print("lembrar senha")
             else:
+                self._model.remember = False
                 print("esquecer senha")
 
 

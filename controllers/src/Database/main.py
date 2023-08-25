@@ -9,7 +9,7 @@ class Database:
         if table != None:
             self.set_table(table)
 
-        self.__json = File.getFile(resource_path('Files/connect.json')) # armazenando host e banco
+        self.__json = File.getFile(resource_path('model/Files/connect.json')) # armazenando host e banco
     #------------------------------------------------------------------------------------
     # connection
     def connect(self) -> bool:

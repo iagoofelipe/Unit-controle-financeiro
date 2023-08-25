@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1100</width>
+    <width>900</width>
     <height>700</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1100</width>
+    <width>900</width>
     <height>700</height>
    </size>
   </property>
@@ -24,7 +24,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(212, 213, 205);</string>
+    <string notr="true"/>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
@@ -153,7 +153,7 @@
                          <string/>
                         </property>
                         <property name="pixmap">
-                         <pixmap resource="../../../controle_financeiro/utils/UI/qrc/qrc.qrc">:/registros/03_registros/user_wt.png</pixmap>
+                         <pixmap resource="../autoFiles/qrc.qrc">:/matriculas/img/matriculas/user_wt.png</pixmap>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -252,7 +252,7 @@
                         </property>
                         <property name="icon">
                          <iconset>
-                          <normalon>:/registros/03_registros/sair.png</normalon>
+                          <normalon>:/matriculas/img/matriculas/sair.png</normalon>
                          </iconset>
                         </property>
                         <property name="iconSize">
@@ -287,7 +287,7 @@
                       <string/>
                      </property>
                      <property name="pixmap">
-                      <pixmap resource="../../../controle_financeiro/utils/UI/qrc/qrc.qrc">:/login/01_login/logo_pedras_vivas.png</pixmap>
+                      <pixmap resource="../autoFiles/qrc.qrc">:/login/img/login/logo_pedras_vivas.png</pixmap>
                      </property>
                     </widget>
                    </item>
@@ -303,39 +303,15 @@
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true"/>
+                   <string notr="true">QTextEdit:hover {
+	background-color: #e5e5e5;
+}</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_5">
                    <property name="bottomMargin">
                     <number>31</number>
                    </property>
-                   <item row="2" column="1">
-                    <spacer name="verticalSpacer_4">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                    <item row="0" column="1">
-                    <spacer name="verticalSpacer_5">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item row="1" column="1">
                     <widget class="QTabWidget" name="tabWidget">
                      <property name="maximumSize">
                       <size>
@@ -347,7 +323,7 @@
                       <string notr="true"/>
                      </property>
                      <property name="currentIndex">
-                      <number>0</number>
+                      <number>1</number>
                      </property>
                      <widget class="QWidget" name="tab_aluno">
                       <attribute name="title">
@@ -1406,18 +1382,34 @@ QLineEdit:hover{background-color: #e5e5e5}
                       </attribute>
                       <layout class="QGridLayout" name="gridLayout_11">
                        <item row="1" column="1">
+                        <widget class="QWidget" name="widget_8" native="true">
+                         <layout class="QVBoxLayout" name="verticalLayout_4">
+                          <item>
+                           <widget class="QComboBox" name="reg_mes_filtro"/>
+                          </item>
+                          <item>
+                           <widget class="QTableWidget" name="reg_table">
+                            <property name="sizeAdjustPolicy">
+                             <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                       <item row="1" column="0">
                         <widget class="QWidget" name="widget_entradas" native="true">
                          <property name="maximumSize">
                           <size>
-                           <width>400</width>
-                           <height>431</height>
+                           <width>530</width>
+                           <height>16777215</height>
                           </size>
                          </property>
                          <layout class="QVBoxLayout" name="verticalLayout_8">
                           <item>
                            <widget class="QGroupBox" name="groupBox">
                             <property name="styleSheet">
-                             <string notr="true">QGroupBox{color: rgb(104, 104, 104);}</string>
+                             <string notr="true"/>
                             </property>
                             <property name="title">
                              <string/>
@@ -1480,12 +1472,7 @@ QLineEdit:hover{background-color: #e5e5e5}
                              <item row="2" column="1">
                               <widget class="QDateEdit" name="reg_data">
                                <property name="styleSheet">
-                                <string notr="true">QDateEdit {
-	background-color: &quot;white&quot;;
-	border: 0;
-}
-
-QDateEdit:hover {
+                                <string notr="true">QDateEdit:hover {
 	background-color: #e5e5e5;
 }</string>
                                </property>
@@ -1506,12 +1493,7 @@ QDateEdit:hover {
                                 </sizepolicy>
                                </property>
                                <property name="styleSheet">
-                                <string notr="true">QDoubleSpinBox {
-	background-color: &quot;white&quot;;
-	border: 0;
-}
-
-QDoubleSpinBox:hover {
+                                <string notr="true">QDoubleSpinBox:hover {
 	background-color: #e5e5e5;
 }</string>
                                </property>
@@ -1535,14 +1517,7 @@ QDoubleSpinBox:hover {
                                 </sizepolicy>
                                </property>
                                <property name="styleSheet">
-                                <string notr="true">QComboBox {
-	background-color: &quot;white&quot;;
-	border: 0;
-}
-
-QComboBox:hover {
-	background-color: #e5e5e5;
-}</string>
+                                <string notr="true"/>
                                </property>
                                <property name="sizeAdjustPolicy">
                                 <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
@@ -1578,15 +1553,7 @@ QComboBox:hover {
                              <item row="5" column="1">
                               <widget class="QTextEdit" name="reg_descricao">
                                <property name="styleSheet">
-                                <string notr="true">QTextEdit {
-	background-color: &quot;white&quot;;
-	border: 0;
-	border-radius: 10px;
-}
-
-QTextEdit:hover {
-	background-color: #e5e5e5;
-}</string>
+                                <string notr="true"/>
                                </property>
                                <property name="html">
                                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -1702,252 +1669,25 @@ QPushButton:hover {
                             </layout>
                            </widget>
                           </item>
+                          <item>
+                           <spacer name="verticalSpacer_2">
+                            <property name="orientation">
+                             <enum>Qt::Vertical</enum>
+                            </property>
+                            <property name="sizeHint" stdset="0">
+                             <size>
+                              <width>20</width>
+                              <height>40</height>
+                             </size>
+                            </property>
+                           </spacer>
+                          </item>
                          </layout>
                         </widget>
-                       </item>
-                       <item row="1" column="0">
-                        <spacer name="horizontalSpacer_7">
-                         <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
-                         </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                        </spacer>
-                       </item>
-                       <item row="1" column="2">
-                        <spacer name="horizontalSpacer_9">
-                         <property name="orientation">
-                          <enum>Qt::Horizontal</enum>
-                         </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>40</width>
-                           <height>20</height>
-                          </size>
-                         </property>
-                        </spacer>
                        </item>
                       </layout>
                      </widget>
                     </widget>
-                   </item>
-                   <item row="1" column="2">
-                    <spacer name="horizontalSpacer">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item row="1" column="0">
-                    <spacer name="horizontalSpacer_2">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QWidget" name="wid_valores" native="true">
-                  <property name="minimumSize">
-                   <size>
-                    <width>200</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_6">
-                   <item>
-                    <spacer name="verticalSpacer_7">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QWidget" name="widget_12" native="true">
-                     <property name="font">
-                      <font>
-                       <family>Yu Gothic UI Semibold</family>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color: rgb(165, 166, 159);
-border-radius: 15;
-color: rgb(255, 255, 255)</string>
-                     </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_4">
-                      <item>
-                       <widget class="QLabel" name="wid_valor_matriculas_ativas">
-                        <property name="font">
-                         <font>
-                          <family>Yu Gothic UI Semibold</family>
-                          <pointsize>44</pointsize>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>45</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="label_2">
-                        <property name="font">
-                         <font>
-                          <family>Yu Gothic UI Semibold</family>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>MATRÍCULAS
-ATIVAS</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QWidget" name="widget_13" native="true">
-                     <property name="font">
-                      <font>
-                       <family>Yu Gothic UI Semibold</family>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color: rgb(165, 166, 159);
-border-radius: 15;
-color: rgb(255, 255, 255)</string>
-                     </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_5">
-                      <item>
-                       <widget class="QLabel" name="wid_valor_men_pendentes">
-                        <property name="font">
-                         <font>
-                          <family>Yu Gothic UI Semibold</family>
-                          <pointsize>44</pointsize>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>10</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="label_5">
-                        <property name="font">
-                         <font>
-                          <family>Yu Gothic UI Semibold</family>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>MENSALIDADES
-PENDENTES</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QWidget" name="widget_15" native="true">
-                     <property name="font">
-                      <font>
-                       <family>Yu Gothic UI Semibold</family>
-                      </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true">background-color: rgb(165, 166, 159);
-border-radius: 15;
-color: rgb(255, 255, 255)</string>
-                     </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_7">
-                      <item>
-                       <widget class="QLabel" name="wid_valor_men_inadimplentes">
-                        <property name="font">
-                         <font>
-                          <family>Yu Gothic UI Semibold</family>
-                          <pointsize>44</pointsize>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>4</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QLabel" name="label_7">
-                        <property name="font">
-                         <font>
-                          <family>Yu Gothic UI Semibold</family>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>MENSALIDADES
-VENCIDAS/INADIMPLENTES</string>
-                        </property>
-                        <property name="alignment">
-                         <set>Qt::AlignCenter</set>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="verticalSpacer_6">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
                    </item>
                   </layout>
                  </widget>
@@ -1971,7 +1711,7 @@ VENCIDAS/INADIMPLENTES</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1100</width>
+     <width>900</width>
      <height>21</height>
     </rect>
    </property>
@@ -2052,8 +1792,7 @@ VENCIDAS/INADIMPLENTES</string>
   <tabstop>btn_registrar</tabstop>
  </tabstops>
  <resources>
-  <include location="../../../controle_financeiro/utils/UI/qrc/qrc.qrc"/>
-  <include location="../../../controle_financeiro/utils/UI/qrc/qrc.qrc"/>
+  <include location="../autoFiles/qrc.qrc"/>
  </resources>
  <connections/>
 </ui>
