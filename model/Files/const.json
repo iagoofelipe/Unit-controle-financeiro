@@ -1,7 +1,7 @@
 {
     "login":{
         "password":"1234",
-        "remember":true,
+        "remember":false,
         "user":"IAGO"
     },
     "registros":{

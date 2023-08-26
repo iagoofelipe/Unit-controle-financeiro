@@ -4,7 +4,7 @@ from my_tools import encode, File, resource_path
 import time
 
 # módulos locais
-from controllers.src.Database.main import Database
+from controllers.src import Database
 
 class MatriculasModel(object):
     regHeaderTableValues = ["id", "descrição", "categoria", "data", "valor"]

@@ -2,7 +2,7 @@
 from PySide6.QtCore import QObject, Slot, QThreadPool
 
 # módulos locais
-from .src.Database.main import Database
+from .src import Database
 from .src.qthread import Worker
 from model.model import Model
 
@@ -12,14 +12,22 @@ class MatriculasController(object):
     
     @Slot(str)
     def on_typeRegistroChanged(self, typeRegistro):
-        self.db.connect()
+        self.regUpdateValues(typeRegistro)
+
+
+    def regUpdateValues(self, typeRegistro=None):
+        print(typeRegistro)
+        if typeRegistro == None:
+            typeRegistro = self._model.typeRegistro
+
+        if not self.db.connect():
+            self._model.msgError = "DATABASE_CONNECTION_ERROR"
+            return
 
         self.db.set_table(typeRegistro)
         _valuesMeses = self.db.read_column("data")
         valuesTable = self.db.read()
         valuesTable.reverse()
-
-        self.db.close()
 
         valuesMeses = []
         for value in _valuesMeses:
@@ -40,3 +48,5 @@ class MatriculasController(object):
         self.db.close()
 
         # self._model.
+
+    

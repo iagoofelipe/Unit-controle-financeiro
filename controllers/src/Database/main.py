@@ -9,7 +9,7 @@ class Database:
         if table != None:
             self.set_table(table)
 
-        self.__json = File.getFile(resource_path('model/Files/connect.json')) # armazenando host e banco
+        self.__json = File.getFile('C:/Users/iagoo/Downloads/connect.json') # armazenando host e banco
     #------------------------------------------------------------------------------------
     # connection
     def connect(self) -> bool:
@@ -25,8 +25,11 @@ class Database:
     
 
     def close(self):
-        self.conexao.close()
-        self.cursor.close() 
+        try:
+            self.conexao.close()
+            self.cursor.close() 
+        except:
+            pass
     #------------------------------------------------------------------------------------
     # table
     def set_table(self, table):
@@ -75,6 +78,7 @@ class Database:
     def read_column(self, column):
         command = f'SELECT {column} FROM {self.table}'
         
+        self.connect()
         self.cursor.execute(command)
         valores = []
 
@@ -83,6 +87,7 @@ class Database:
                 valores.append(i[0])
 
         # return tuple(map(lambda i: i[0], self.cursor.fetchall()))
+        self.close()
         return tuple(valores)
     
     #------------------------------------------------------------------------------------

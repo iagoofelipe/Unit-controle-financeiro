@@ -2,7 +2,7 @@
 from PySide6.QtCore import QObject, Slot, QThreadPool
 
 # módulos locais
-from .src.Database.main import Database
+from .src import Database
 from .src.qthread import Worker
 from model.model import Model
 from .Matriculas_ctrl import MatriculasController
@@ -45,7 +45,7 @@ class MainController(QObject, MatriculasController):
         self.threadpool.start(worker)
 
     @Slot(object)
-    def logout(self, master):
+    def on_logout(self, master):
         self._model.user = "USUARIO"
         self._model.password = ""
         self._model.remember = False

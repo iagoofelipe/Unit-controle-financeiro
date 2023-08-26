@@ -19,6 +19,7 @@ class Login(Ui_Login):
         self.login_entry_password.returnPressed.connect(self.btn_loginAction)
 
         # caso de login automatico (remember me)
+        print("remember de Login:", self._model._remember)
         if self._model._remember:
             self.login_entry_user.setText(self._model.user)
             self.login_entry_password.setText(self._model.password)

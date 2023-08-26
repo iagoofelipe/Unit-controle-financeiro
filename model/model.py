@@ -3,7 +3,7 @@ from PySide6.QtCore import QObject, Signal
 from my_tools import encode, File, resource_path
 
 # módulos locais
-from controllers.src.Database.main import Database
+from controllers.src import Database
 from .Matriculas_model import MatriculasModel
 
 class Model(QObject, MatriculasModel):    
@@ -12,6 +12,7 @@ class Model(QObject, MatriculasModel):
     connectionChanged = Signal(bool)
     errorDefined = Signal()
     loginPermission = Signal(bool)
+    logout = Signal(object)
 
     #----------------------------------------------------
     # property
@@ -63,7 +64,7 @@ class Model(QObject, MatriculasModel):
 
     @password.setter
     def password(self, value: str):
-        self._password = encode(value, True)
+        self._password = encode(value)
         self.json_const["login"]["password"] = self._password
         File.toFile(resource_path("model/Files/const.json"), self.json_const)
 

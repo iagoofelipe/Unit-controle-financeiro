@@ -26,10 +26,18 @@ class MainView(QMainWindow, App):
         self._model.connectionChanged.connect(self.on_connectionChanged)
         self._model.errorDefined.connect(self.on_errorDefined)
         self._model.loginPermission.connect(self.on_loginPermission)
+        self._model.logout.connect(self._main_controller.on_logout)
         
         # atribuindo métodos de controller
         self.timer.timeout.connect(self._main_controller.check_connection)
         self.timer.start(2000)
+
+    def logout(self, master):
+        master.timer.stop()
+
+        self.timer.timeout.connect(self._main_controller.check_connection)
+        self.timer.start(2000)
+        self._model.logout.emit(self)
 
     #-------------------------------------------------------------------------------
     # métodos on_model
@@ -75,8 +83,12 @@ class MainView(QMainWindow, App):
                 self._ui = ui()
                 start = False
 
+        self.timer.stop()
         self._ui.setupUi(self)
         self.setObjectName(objectName)
+
+        self._ui_atual["objectName"] = objectName
+        self._ui_atual["ui"] = self._ui
         
         if start:
             self._ui.start()

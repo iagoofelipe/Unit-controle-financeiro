@@ -1,5 +1,5 @@
 from my_tools import File
-from controllers.src.Database.main import Database
+from controllers.src import Database
 
 dados = File.getFile("dados.csv")
 db = Database("saidas")
