@@ -6,6 +6,8 @@ from typing import Iterable
 # módulos locais
 from .ui import *
 from .Login import Login
+from .Carregando_view import Carregando_view
+
 from .Matriculas_view import Matriculas_view
 from model.model import Model
 from controllers.main_ctrl import MainController
@@ -18,14 +20,16 @@ class MainView(QMainWindow, App):
         self.timer = QTimer(self)
         self._model = model
         self._main_controller = main_controller
-        self._ui_atual = dict(ui=Ui_Carregando, objectName="Carregando")
+        self._ui_atual = dict(ui=Carregando_view, objectName="Carregando")
+        self.uis = dict(Error=Ui_Error, Login=Ui_Login, Matriculas=Ui_Matriculas, Carregamento=Ui_Carregando)
+        self._main_controller.view = self
         
         self.changeUi(**self._ui_atual)
         
         # atribuindo métodos de model
-        self._model.connectionChanged.connect(self.on_connectionChanged)
-        self._model.errorDefined.connect(self.on_errorDefined)
-        self._model.loginPermission.connect(self.on_loginPermission)
+        self._model.connectionChanged.connect(self._main_controller.on_connectionChanged)
+        self._model.errorDefined.connect(self._main_controller.on_errorDefined)
+        self._model.loginPermission.connect(self._main_controller.on_loginPermission)
         self._model.logout.connect(self._main_controller.on_logout)
         
         # atribuindo métodos de controller
@@ -40,35 +44,6 @@ class MainView(QMainWindow, App):
         self._model.logout.emit(self)
 
     #-------------------------------------------------------------------------------
-    # métodos on_model
-    @Slot(bool)
-    def on_connectionChanged(self, value):
-        objectName = self.objectName()
-
-        if objectName == "Carregando" and value:
-                self._ui.label_processo.setText("êxito na conexão!")
-                self._ui_atual = dict(ui=Ui_Login, objectName="Login")
-                self.timer.singleShot(2000, lambda: self.changeUi(**self._ui_atual))
-
-        if objectName != "Carregando" and value:
-            self._ui_atual = dict(ui=Ui_Login, objectName="Login")
-            self.changeUi(**self._ui_atual)
-
-
-    @Slot()
-    def on_errorDefined(self):
-         self.changeUi(Ui_Error, "Error")
-         self._ui.msg.setText(self._model.msgError)
-
-    
-    @Slot(bool)
-    def on_loginPermission(self, value):
-        if value:
-            self.changeUi(objectName="Matriculas")
-        else:            
-            self._ui.showPopup()
-
-    #-------------------------------------------------------------------------------
     # outros métodos    
     def changeUi(self, ui=None, objectName=None):
         start = True
@@ -79,6 +54,10 @@ class MainView(QMainWindow, App):
             case "Matriculas":
                 self._ui = Matriculas_view(self)
             
+            case "Carregando":
+                self._ui = Carregando_view(self)
+                start = False
+
             case _:
                 self._ui = ui()
                 start = False
@@ -86,6 +65,7 @@ class MainView(QMainWindow, App):
         self.timer.stop()
         self._ui.setupUi(self)
         self.setObjectName(objectName)
+        self.setWindowTitle(self._model._windowTitle)
 
         self._ui_atual["objectName"] = objectName
         self._ui_atual["ui"] = self._ui

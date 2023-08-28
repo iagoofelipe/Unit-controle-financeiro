@@ -3,7 +3,7 @@ from PySide6.QtCore import QObject, Signal
 from my_tools import encode, File, resource_path
 
 # módulos locais
-from controllers.src import Database
+from controllers.src import Database, Crypto
 from .Matriculas_model import MatriculasModel
 
 class Model(QObject, MatriculasModel):    
@@ -13,6 +13,8 @@ class Model(QObject, MatriculasModel):
     errorDefined = Signal()
     loginPermission = Signal(bool)
     logout = Signal(object)
+
+    crypto = Crypto()
 
     #----------------------------------------------------
     # property
@@ -65,7 +67,7 @@ class Model(QObject, MatriculasModel):
     @password.setter
     def password(self, value: str):
         self._password = encode(value)
-        self.json_const["login"]["password"] = self._password
+        self.json_const["login"]["password"] = self.crypto.encode(self._password, "str")
         File.toFile(resource_path("model/Files/const.json"), self.json_const)
 
 
@@ -83,11 +85,14 @@ class Model(QObject, MatriculasModel):
 
 
     def getUsers(self) -> list:
-        self.db.connect()
-        self.db.set_table("users")
-        values = self.db.read()
-        self.db.close()
-        
+        try:
+            self.db.connect()
+            self.db.set_table("users")
+            values = self.db.read()
+            self.db.close()
+        except:
+            values = []
+            
         return values
     
     #----------------------------------------------------
@@ -95,13 +100,15 @@ class Model(QObject, MatriculasModel):
         super().__init__()
         self.db = Database()
         self.json_const = File.getFile(resource_path("model/Files/const.json"))
-        
+        self.crypto.key = self.json_const["key"]
+
         self._connection = None
         self._msgError = "UNKNOWN_ERROR: Erro desconnhecido"
         
         self._users = self.getUsers()
         self._user = self.json_const["login"]["user"]
-        self._password = self.json_const["login"]["password"]
+        self._password = self.crypto.decode(self.json_const["login"]["password"])
         self._remember = self.json_const["login"]["remember"]
 
         self._permission = False
+        self._windowTitle = self.json_const["windowTitle"]

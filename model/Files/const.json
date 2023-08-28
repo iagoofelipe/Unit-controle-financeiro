@@ -1,8 +1,9 @@
 {
+    "key":"d9tiHdGYdvpK8hqwG7G0FjJeIm151UqXQDoyB10QydI=",
     "login":{
-        "password":"1234",
-        "remember":false,
-        "user":"IAGO"
+        "password":"gAAAAABk7S22_YX0j_iGA9W5cqMgeD7_JXOVpWILL-ggQgOX2UxNa_vLgW_1qgjCJBw7pVezUNRZmSuHBzoo7xZS3Tpv9v4xQg==",
+        "remember":true,
+        "user":"USUARIO"
     },
     "registros":{
         "categoria_entradas":[
@@ -14,5 +15,6 @@
             "INSUMOS",
             "OUTROS"
         ]
-    }
+    },
+    "windowTitle":"Unit - Controle Financeiro"
 }

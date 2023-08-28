@@ -4,15 +4,30 @@ from PySide6.QtCore import QObject, Slot, QThreadPool
 # módulos locais
 from .src import Database
 from .src.qthread import Worker
+
 from model.model import Model
 from .Matriculas_ctrl import MatriculasController
 
 class MainController(QObject, MatriculasController):
     def __init__(self, model: Model):
+        from views.main_view import MainView
+        
         super(MainController, self).__init__()
         self._model = model
         self.threadpool = QThreadPool()
         self.db = Database()
+        self._view: MainView = None
+
+
+    @property
+    def view(self):
+        return self._view
+
+
+    @view.setter
+    def view(self, __obj):
+        self._view = __obj
+
 
     @Slot()
     def check_connection(self):
@@ -51,3 +66,33 @@ class MainController(QObject, MatriculasController):
         self._model.remember = False
 
         master.changeUi(objectName="Login")
+
+
+    @Slot()
+    def on_errorDefined(self):
+        self._view.changeUi(self._view.uis["Error"], "Error")
+        self._view._ui.msg.setText(self._model.msgError)
+
+
+    @Slot(bool)
+    def on_loginPermission(self, value):
+        print("Login autorizado")
+
+        if value:
+            self._view.changeUi(objectName="Matriculas")
+        else:            
+            self._view._ui.showPopup()
+
+    
+    @Slot(bool)
+    def on_connectionChanged(self, value):
+        objectName = self._view.objectName()
+
+        if objectName == "Carregando" and value:
+                self._view._ui.label_processo.setText("êxito na conexão!")
+                self._view._ui_atual = dict(ui=self._view.uis["Login"], objectName="Login")
+                self._view.timer.singleShot(2000, lambda: self._view.changeUi(**self._view._ui_atual))
+
+        if objectName != "Carregando" and value:
+            self._view._ui_atual = dict(ui=self._view.uis["Login"], objectName="Login")
+            self._view.changeUi(**self._view._ui_atual)
