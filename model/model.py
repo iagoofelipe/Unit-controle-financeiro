@@ -1,21 +1,26 @@
 # módulos python
 from PySide6.QtCore import QObject, Signal
+from PySide6.QtWidgets import QMainWindow
 from my_tools import encode, File, resource_path
 
 # módulos locais
-from controllers.src import Database
-from .Matriculas_model import MatriculasModel
+from controllers.src import Database, Crypto
 
-class Model(QObject, MatriculasModel):    
+class Model(QObject):    
     #----------------------------------------------------
     # Signal
+    uiChanged = Signal(object)
     connectionChanged = Signal(bool)
     errorDefined = Signal()
-    loginPermission = Signal(bool)
-    logout = Signal(object)
+    # logout = Signal(object)
 
-    #----------------------------------------------------
-    # property
+
+    # #----------------------------------------------------
+    # # property
+    @property
+    def ui(self):
+        return self._ui
+    
     @property
     def msgError(self):
         return self._msgError
@@ -24,24 +29,33 @@ class Model(QObject, MatriculasModel):
     def connection(self):
         return self._connection
     
-    @property
-    def user(self):
-        return self._user
+
     
-    @property
-    def password(self):
-        return self._password
+
     
-    @property
-    def permission(self):
-        return self._permission
+
     
-    @property
-    def remember(self):
-        return self._remember
-    
-    #----------------------------------------------------
+    # #----------------------------------------------------
     # setter
+    @ui.setter
+    def ui(self, __obj: QMainWindow | QObject):
+        self._ui = __obj
+        
+        if type(self._view._ui) == QMainWindow:
+            geometry = self._view._ui.geometry()
+        else:
+            geometry = self._view.geometry()    
+
+        self._view._ui = self._ui
+
+        self._view.close()
+        self._view.timer.stop()
+        
+        self._ui.show()
+        self._ui.setGeometry(geometry)
+        # self.uiChanged.emit(__obj)
+
+
     @msgError.setter
     def msgError(self, value: str):
         self._msgError = value
@@ -50,58 +64,39 @@ class Model(QObject, MatriculasModel):
     
     @connection.setter
     def connection(self, value: bool):
+        # em caso de queda na conexão
         if value != self._connection:
             self._connection = value
             self.connectionChanged.emit(value)
 
 
-    @user.setter
-    def user(self, value: str):
-        self._user = encode(value, True)
-        self.json_const["login"]["user"] = self._user
-        File.toFile(resource_path("model/Files/const.json"), self.json_const)
-
-
-    @password.setter
-    def password(self, value: str):
-        self._password = encode(value)
-        self.json_const["login"]["password"] = self._password
-        File.toFile(resource_path("model/Files/const.json"), self.json_const)
-
-
-    @permission.setter
-    def permission(self, value: bool):
-        self._permission = value
-        self.loginPermission.emit(value)
-
-
-    @remember.setter
-    def remember(self, value: bool):
-        self._remember = value
-        self.json_const["login"]["remember"] = self._remember
-        File.toFile(resource_path("model/Files/const.json"), self.json_const)
-
-
     def getUsers(self) -> list:
-        self.db.connect()
-        self.db.set_table("users")
-        values = self.db.read()
-        self.db.close()
-        
+        try:
+            self.db.set_table("users")
+            values = self.db.read()
+        except:
+            values = []
+            
         return values
     
     #----------------------------------------------------
     def __init__(self):
         super().__init__()
+        from . import MatriculasModel
+        from . import LoginModel
+        
         self.db = Database()
         self.json_const = File.getFile(resource_path("model/Files/const.json"))
-        
+        # self.crypto.key = self.json_const["key"]
+
         self._connection = None
-        self._msgError = "UNKNOWN_ERROR: Erro desconnhecido"
+        # self._msgError = "UNKNOWN_ERROR: Erro desconnhecido"
         
         self._users = self.getUsers()
-        self._user = self.json_const["login"]["user"]
-        self._password = self.json_const["login"]["password"]
-        self._remember = self.json_const["login"]["remember"]
+        # self._user = self.json_const["login"]["user"]
+        # self._password = self.crypto.decode(self.json_const["login"]["password"])
 
-        self._permission = False
+        # self._windowTitle = self.json_const["windowTitle"]
+        
+        # self.matriculas = MatriculasModel()
+        # self.login = LoginModel(self)

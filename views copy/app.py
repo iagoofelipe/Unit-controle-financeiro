@@ -1,22 +1,11 @@
 # extensão de métodos para QMainWindow
-from PySide6.QtCore import Qt, QTimer
+from PySide6.QtCore import Qt
 from PySide6.QtGui import QStandardItemModel, QStandardItem
 from PySide6.QtWidgets import QTableWidgetItem, QTableWidget, QComboBox, QListView
 from typing import Sequence, Iterable
 
-from model import Model
-from controllers import MainController
 
 class App(object):
-    def setDefaults(self, master):
-        self.setupUi(self)
-        self.timer = QTimer(self)
-
-        self._master = master
-        self._main_model: Model = master._model
-        self._main_controller: MainController = master._main_controller
-
-
     def setComboboxValues(self, __obj: QComboBox, __Iterable: Iterable):
         count = 0
         __obj.clear()
@@ -60,7 +49,7 @@ class App(object):
             content.appendRow(item)
 
 
-    # def changeUi(self, ui):
-    #     self.close()
-    #     ui.setupUi(self)
-    #     ui.show()
+    def changeUi(self, ui):
+        self.close()
+        ui.setupUi(self)
+        ui.show()

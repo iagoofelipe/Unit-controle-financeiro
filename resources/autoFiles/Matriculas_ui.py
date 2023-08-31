@@ -19,10 +19,10 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
 from PySide6.QtWidgets import (QAbstractScrollArea, QApplication, QComboBox, QDateEdit,
     QDoubleSpinBox, QFrame, QGridLayout, QGroupBox,
     QHBoxLayout, QHeaderView, QLabel, QLineEdit,
-    QListView, QMainWindow, QMenu, QMenuBar,
-    QPushButton, QRadioButton, QSizePolicy, QSpacerItem,
-    QStatusBar, QTabWidget, QTableWidget, QTableWidgetItem,
-    QTextEdit, QVBoxLayout, QWidget)
+    QListView, QMainWindow, QPushButton, QRadioButton,
+    QSizePolicy, QSpacerItem, QStatusBar, QTabWidget,
+    QTableWidget, QTableWidgetItem, QTextEdit, QVBoxLayout,
+    QWidget)
 from . import qrc_rc
 
 class Ui_Matriculas(object):
@@ -45,54 +45,67 @@ class Ui_Matriculas(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"")
         self.gridLayout = QGridLayout(self.centralwidget)
-        self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setHorizontalSpacing(1)
+        self.gridLayout.setVerticalSpacing(0)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.widget = QWidget(self.centralwidget)
-        self.widget.setObjectName(u"widget")
-        self.gridLayout_2 = QGridLayout(self.widget)
-        self.gridLayout_2.setSpacing(0)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.widget_2 = QWidget(self.widget)
-        self.widget_2.setObjectName(u"widget_2")
-        self.gridLayout_3 = QGridLayout(self.widget_2)
-        self.gridLayout_3.setSpacing(0)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.widget_3 = QWidget(self.widget_2)
-        self.widget_3.setObjectName(u"widget_3")
-        self.horizontalLayout_2 = QHBoxLayout(self.widget_3)
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.horizontalLayout_2.setContentsMargins(0, 0, 15, 0)
-        self.container = QWidget(self.widget_3)
-        self.container.setObjectName(u"container")
-        self.gridLayout_6 = QGridLayout(self.container)
-        self.gridLayout_6.setSpacing(0)
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.wid_sidebar = QWidget(self.container)
+        self.wid_sidebar = QWidget(self.centralwidget)
         self.wid_sidebar.setObjectName(u"wid_sidebar")
+        self.wid_sidebar.setMinimumSize(QSize(0, 0))
         self.wid_sidebar.setMaximumSize(QSize(90, 16777215))
-        self.wid_sidebar.setStyleSheet(u"background-color: rgb(165, 166, 159);")
+        self.wid_sidebar.setStyleSheet(u"background-color: rgb(165, 166, 159); color: \"white\";")
         self.verticalLayout_2 = QVBoxLayout(self.wid_sidebar)
         self.verticalLayout_2.setSpacing(5)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(0, 0, 0, 19)
-        self.widget_5 = QWidget(self.wid_sidebar)
-        self.widget_5.setObjectName(u"widget_5")
-        self.widget_5.setStyleSheet(u"background-color: rgba(255, 255, 255, 0);")
-        self.verticalLayout = QVBoxLayout(self.widget_5)
-        self.verticalLayout.setSpacing(0)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.user_png = QLabel(self.widget_5)
-        self.user_png.setObjectName(u"user_png")
-        self.user_png.setPixmap(QPixmap(u":/matriculas/img/matriculas/user_wt.png"))
-        self.user_png.setAlignment(Qt.AlignCenter)
+        self.verticalLayout_2.setContentsMargins(0, 11, 0, 19)
+        self.btn_menu = QPushButton(self.wid_sidebar)
+        self.btn_menu.setObjectName(u"btn_menu")
+        self.btn_menu.setStyleSheet(u"QPushButton{border: 0}")
+        icon = QIcon()
+        icon.addFile(u":/matriculas/img/menu_white.png", QSize(), QIcon.Active, QIcon.On)
+        self.btn_menu.setIcon(icon)
+        self.btn_menu.setIconSize(QSize(26, 23))
 
-        self.verticalLayout.addWidget(self.user_png)
+        self.verticalLayout_2.addWidget(self.btn_menu)
 
-        self.user_name = QLabel(self.widget_5)
+        self.widget_11 = QWidget(self.wid_sidebar)
+        self.widget_11.setObjectName(u"widget_11")
+        self.widget_11.setStyleSheet(u"QPushButton{border: 0}")
+        self.verticalLayout_3 = QVBoxLayout(self.widget_11)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.btn_config = QPushButton(self.widget_11)
+        self.btn_config.setObjectName(u"btn_config")
+        icon1 = QIcon()
+        icon1.addFile(u":/matriculas/img/engrenagem_white.png", QSize(), QIcon.Normal, QIcon.On)
+        self.btn_config.setIcon(icon1)
+        self.btn_config.setIconSize(QSize(26, 43))
+        self.btn_config.setCheckable(False)
+        self.btn_config.setChecked(False)
+
+        self.verticalLayout_3.addWidget(self.btn_config)
+
+        self.btn_sair = QPushButton(self.widget_11)
+        self.btn_sair.setObjectName(u"btn_sair")
+        self.btn_sair.setLayoutDirection(Qt.LeftToRight)
+        self.btn_sair.setStyleSheet(u"")
+        icon2 = QIcon()
+        icon2.addFile(u":/matriculas/img/matriculas/sair.png", QSize(), QIcon.Normal, QIcon.On)
+        self.btn_sair.setIcon(icon2)
+        self.btn_sair.setIconSize(QSize(40, 40))
+        self.btn_sair.setFlat(True)
+
+        self.verticalLayout_3.addWidget(self.btn_sair)
+
+        self.spacer1 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_3.addItem(self.spacer1)
+
+
+        self.verticalLayout_2.addWidget(self.widget_11)
+
+        self.user_name = QLabel(self.wid_sidebar)
         self.user_name.setObjectName(u"user_name")
         self.user_name.setEnabled(True)
         self.user_name.setMinimumSize(QSize(75, 0))
@@ -109,49 +122,20 @@ class Ui_Matriculas(object):
         self.user_name.setScaledContents(False)
         self.user_name.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.user_name)
+        self.verticalLayout_2.addWidget(self.user_name)
+
+        self.logo = QLabel(self.wid_sidebar)
+        self.logo.setObjectName(u"logo")
+        self.logo.setMinimumSize(QSize(84, 0))
+        self.logo.setLayoutDirection(Qt.RightToLeft)
+        self.logo.setPixmap(QPixmap(u":/login/img/login/logo_pedras_vivas.png"))
+
+        self.verticalLayout_2.addWidget(self.logo)
 
 
-        self.verticalLayout_2.addWidget(self.widget_5)
+        self.gridLayout.addWidget(self.wid_sidebar, 0, 0, 2, 1)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_2.addItem(self.verticalSpacer)
-
-        self.widget_11 = QWidget(self.wid_sidebar)
-        self.widget_11.setObjectName(u"widget_11")
-        self.widget_11.setStyleSheet(u"QPushButton{border: 0}")
-        self.verticalLayout_3 = QVBoxLayout(self.widget_11)
-        self.verticalLayout_3.setSpacing(0)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.btn_sair = QPushButton(self.widget_11)
-        self.btn_sair.setObjectName(u"btn_sair")
-        self.btn_sair.setLayoutDirection(Qt.LeftToRight)
-        self.btn_sair.setStyleSheet(u"")
-        icon = QIcon()
-        icon.addFile(u":/matriculas/img/matriculas/sair.png", QSize(), QIcon.Normal, QIcon.On)
-        self.btn_sair.setIcon(icon)
-        self.btn_sair.setIconSize(QSize(41, 36))
-        self.btn_sair.setFlat(True)
-
-        self.verticalLayout_3.addWidget(self.btn_sair)
-
-
-        self.verticalLayout_2.addWidget(self.widget_11)
-
-        self.label = QLabel(self.wid_sidebar)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(84, 0))
-        self.label.setLayoutDirection(Qt.RightToLeft)
-        self.label.setPixmap(QPixmap(u":/login/img/login/logo_pedras_vivas.png"))
-
-        self.verticalLayout_2.addWidget(self.label)
-
-
-        self.gridLayout_6.addWidget(self.wid_sidebar, 0, 0, 1, 1)
-
-        self.wid_principal = QWidget(self.container)
+        self.wid_principal = QWidget(self.centralwidget)
         self.wid_principal.setObjectName(u"wid_principal")
         self.wid_principal.setMaximumSize(QSize(16777215, 16777215))
         self.wid_principal.setStyleSheet(u"QTextEdit:hover {\n"
@@ -164,6 +148,202 @@ class Ui_Matriculas(object):
         self.tabWidget.setObjectName(u"tabWidget")
         self.tabWidget.setMaximumSize(QSize(16777215, 16777215))
         self.tabWidget.setStyleSheet(u"")
+        self.tab_registros_4 = QWidget()
+        self.tab_registros_4.setObjectName(u"tab_registros_4")
+        self.gridLayout_11 = QGridLayout(self.tab_registros_4)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.widget_8 = QWidget(self.tab_registros_4)
+        self.widget_8.setObjectName(u"widget_8")
+        self.verticalLayout_4 = QVBoxLayout(self.widget_8)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.frame_2 = QFrame(self.widget_8)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_2.setSpacing(5)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.reg_btn_atualizar = QPushButton(self.frame_2)
+        self.reg_btn_atualizar.setObjectName(u"reg_btn_atualizar")
+        self.reg_btn_atualizar.setMaximumSize(QSize(19, 16777215))
+        self.reg_btn_atualizar.setStyleSheet(u"border:0;")
+        icon3 = QIcon()
+        icon3.addFile(u":/matriculas/img/recarregar.png", QSize(), QIcon.Normal, QIcon.On)
+        self.reg_btn_atualizar.setIcon(icon3)
+
+        self.horizontalLayout_2.addWidget(self.reg_btn_atualizar)
+
+        self.reg_mes_filtro = QComboBox(self.frame_2)
+        self.reg_mes_filtro.setObjectName(u"reg_mes_filtro")
+
+        self.horizontalLayout_2.addWidget(self.reg_mes_filtro)
+
+
+        self.verticalLayout_4.addWidget(self.frame_2)
+
+        self.reg_table = QTableWidget(self.widget_8)
+        self.reg_table.setObjectName(u"reg_table")
+        self.reg_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContentsOnFirstShow)
+
+        self.verticalLayout_4.addWidget(self.reg_table)
+
+
+        self.gridLayout_11.addWidget(self.widget_8, 1, 1, 1, 1)
+
+        self.widget_entradas = QWidget(self.tab_registros_4)
+        self.widget_entradas.setObjectName(u"widget_entradas")
+        self.widget_entradas.setMaximumSize(QSize(530, 16777215))
+        self.verticalLayout_8 = QVBoxLayout(self.widget_entradas)
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+        self.groupBox = QGroupBox(self.widget_entradas)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setStyleSheet(u"")
+        self.gridLayout_8 = QGridLayout(self.groupBox)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.gridLayout_8.setVerticalSpacing(25)
+        self.label_valor = QLabel(self.groupBox)
+        self.label_valor.setObjectName(u"label_valor")
+        font1 = QFont()
+        font1.setFamilies([u"Yu Gothic UI"])
+        font1.setPointSize(12)
+        self.label_valor.setFont(font1)
+        self.label_valor.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_8.addWidget(self.label_valor, 3, 0, 1, 1)
+
+        self.label_data = QLabel(self.groupBox)
+        self.label_data.setObjectName(u"label_data")
+        self.label_data.setFont(font1)
+        self.label_data.setStyleSheet(u"")
+        self.label_data.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_8.addWidget(self.label_data, 2, 0, 1, 1)
+
+        self.label_categoria = QLabel(self.groupBox)
+        self.label_categoria.setObjectName(u"label_categoria")
+        self.label_categoria.setFont(font1)
+        self.label_categoria.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_8.addWidget(self.label_categoria, 4, 0, 1, 1)
+
+        self.reg_data = QDateEdit(self.groupBox)
+        self.reg_data.setObjectName(u"reg_data")
+        self.reg_data.setStyleSheet(u"QDateEdit:hover {\n"
+"	background-color: #e5e5e5;\n"
+"}")
+        self.reg_data.setAlignment(Qt.AlignCenter)
+        self.reg_data.setCalendarPopup(True)
+
+        self.gridLayout_8.addWidget(self.reg_data, 2, 1, 1, 1)
+
+        self.reg_valor = QDoubleSpinBox(self.groupBox)
+        self.reg_valor.setObjectName(u"reg_valor")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.reg_valor.sizePolicy().hasHeightForWidth())
+        self.reg_valor.setSizePolicy(sizePolicy)
+        self.reg_valor.setStyleSheet(u"QDoubleSpinBox:hover {\n"
+"	background-color: #e5e5e5;\n"
+"}")
+        self.reg_valor.setAlignment(Qt.AlignCenter)
+        self.reg_valor.setDecimals(2)
+        self.reg_valor.setMaximum(999999.989999999990687)
+
+        self.gridLayout_8.addWidget(self.reg_valor, 3, 1, 1, 1)
+
+        self.reg_categoria = QComboBox(self.groupBox)
+        self.reg_categoria.addItem("")
+        self.reg_categoria.addItem("")
+        self.reg_categoria.setObjectName(u"reg_categoria")
+        sizePolicy.setHeightForWidth(self.reg_categoria.sizePolicy().hasHeightForWidth())
+        self.reg_categoria.setSizePolicy(sizePolicy)
+        self.reg_categoria.setStyleSheet(u"")
+        self.reg_categoria.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
+
+        self.gridLayout_8.addWidget(self.reg_categoria, 4, 1, 1, 1)
+
+        self.label_descricao = QLabel(self.groupBox)
+        self.label_descricao.setObjectName(u"label_descricao")
+        self.label_descricao.setFont(font1)
+        self.label_descricao.setAlignment(Qt.AlignRight|Qt.AlignTop|Qt.AlignTrailing)
+
+        self.gridLayout_8.addWidget(self.label_descricao, 5, 0, 1, 1)
+
+        self.reg_descricao = QTextEdit(self.groupBox)
+        self.reg_descricao.setObjectName(u"reg_descricao")
+        self.reg_descricao.setStyleSheet(u"")
+
+        self.gridLayout_8.addWidget(self.reg_descricao, 5, 1, 1, 1)
+
+        self.widget_7 = QWidget(self.groupBox)
+        self.widget_7.setObjectName(u"widget_7")
+        self.horizontalLayout = QHBoxLayout(self.widget_7)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_5)
+
+        self.reg_btn_entrada = QRadioButton(self.widget_7)
+        self.reg_btn_entrada.setObjectName(u"reg_btn_entrada")
+
+        self.horizontalLayout.addWidget(self.reg_btn_entrada)
+
+        self.reg_btn_saida = QRadioButton(self.widget_7)
+        self.reg_btn_saida.setObjectName(u"reg_btn_saida")
+
+        self.horizontalLayout.addWidget(self.reg_btn_saida)
+
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout.addItem(self.horizontalSpacer_6)
+
+
+        self.gridLayout_8.addWidget(self.widget_7, 0, 1, 1, 1)
+
+        self.label_3 = QLabel(self.groupBox)
+        self.label_3.setObjectName(u"label_3")
+
+        self.gridLayout_8.addWidget(self.label_3, 0, 0, 1, 1)
+
+
+        self.verticalLayout_8.addWidget(self.groupBox)
+
+        self.btn = QWidget(self.widget_entradas)
+        self.btn.setObjectName(u"btn")
+        self.horizontalLayout_3 = QHBoxLayout(self.btn)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
+
+        self.reg_btn_registrar = QPushButton(self.btn)
+        self.reg_btn_registrar.setObjectName(u"reg_btn_registrar")
+        self.reg_btn_registrar.setStyleSheet(u"")
+
+        self.horizontalLayout_3.addWidget(self.reg_btn_registrar)
+
+        self.reg_btn_limpar = QPushButton(self.btn)
+        self.reg_btn_limpar.setObjectName(u"reg_btn_limpar")
+
+        self.horizontalLayout_3.addWidget(self.reg_btn_limpar)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer_4)
+
+
+        self.verticalLayout_8.addWidget(self.btn)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_8.addItem(self.verticalSpacer_2)
+
+
+        self.gridLayout_11.addWidget(self.widget_entradas, 1, 0, 1, 1)
+
+        self.tabWidget.addTab(self.tab_registros_4, "")
         self.tab_aluno = QWidget()
         self.tab_aluno.setObjectName(u"tab_aluno")
         self.gridLayout_7 = QGridLayout(self.tab_aluno)
@@ -195,9 +375,6 @@ class Ui_Matriculas(object):
         self.entry_matriculas_mes_mensalidade.addItem("")
         self.entry_matriculas_mes_mensalidade.addItem("")
         self.entry_matriculas_mes_mensalidade.setObjectName(u"entry_matriculas_mes_mensalidade")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.entry_matriculas_mes_mensalidade.sizePolicy().hasHeightForWidth())
         self.entry_matriculas_mes_mensalidade.setSizePolicy(sizePolicy)
         self.entry_matriculas_mes_mensalidade.setMinimumSize(QSize(83, 0))
@@ -242,11 +419,11 @@ class Ui_Matriculas(object):
         self.verticalLayout_19.setContentsMargins(0, 0, 0, 0)
         self.label_data_10 = QLabel(self.widget_27)
         self.label_data_10.setObjectName(u"label_data_10")
-        font1 = QFont()
-        font1.setFamilies([u"Arial"])
-        font1.setPointSize(8)
-        font1.setBold(True)
-        self.label_data_10.setFont(font1)
+        font2 = QFont()
+        font2.setFamilies([u"Arial"])
+        font2.setPointSize(8)
+        font2.setBold(True)
+        self.label_data_10.setFont(font2)
         self.label_data_10.setStyleSheet(u"background-color: rgb(0, 85, 127);")
         self.label_data_10.setAlignment(Qt.AlignCenter)
 
@@ -274,7 +451,7 @@ class Ui_Matriculas(object):
         self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
         self.label_data_13 = QLabel(self.widget_28)
         self.label_data_13.setObjectName(u"label_data_13")
-        self.label_data_13.setFont(font1)
+        self.label_data_13.setFont(font2)
         self.label_data_13.setStyleSheet(u"background-color: rgb(134, 0, 0);")
         self.label_data_13.setAlignment(Qt.AlignCenter)
 
@@ -302,7 +479,7 @@ class Ui_Matriculas(object):
         self.verticalLayout_21.setContentsMargins(0, 0, 0, 0)
         self.label_data_14 = QLabel(self.widget_29)
         self.label_data_14.setObjectName(u"label_data_14")
-        self.label_data_14.setFont(font1)
+        self.label_data_14.setFont(font2)
         self.label_data_14.setStyleSheet(u"background-color: rgb(134, 0, 0);")
         self.label_data_14.setAlignment(Qt.AlignCenter)
 
@@ -345,10 +522,7 @@ class Ui_Matriculas(object):
         self.label_categoria_36 = QLabel(self.groupBox_dados_alunos)
         self.label_categoria_36.setObjectName(u"label_categoria_36")
         self.label_categoria_36.setMinimumSize(QSize(137, 0))
-        font2 = QFont()
-        font2.setFamilies([u"Yu Gothic UI"])
-        font2.setPointSize(12)
-        self.label_categoria_36.setFont(font2)
+        self.label_categoria_36.setFont(font1)
         self.label_categoria_36.setAlignment(Qt.AlignRight|Qt.AlignTop|Qt.AlignTrailing)
 
         self.gridLayout_13.addWidget(self.label_categoria_36, 6, 0, 1, 1)
@@ -356,7 +530,7 @@ class Ui_Matriculas(object):
         self.label_categoria_39 = QLabel(self.groupBox_dados_alunos)
         self.label_categoria_39.setObjectName(u"label_categoria_39")
         self.label_categoria_39.setMinimumSize(QSize(137, 0))
-        self.label_categoria_39.setFont(font2)
+        self.label_categoria_39.setFont(font1)
         self.label_categoria_39.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_13.addWidget(self.label_categoria_39, 4, 0, 1, 1)
@@ -381,7 +555,7 @@ class Ui_Matriculas(object):
         self.label_categoria_31 = QLabel(self.groupBox_dados_alunos)
         self.label_categoria_31.setObjectName(u"label_categoria_31")
         self.label_categoria_31.setMinimumSize(QSize(137, 0))
-        self.label_categoria_31.setFont(font2)
+        self.label_categoria_31.setFont(font1)
         self.label_categoria_31.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_13.addWidget(self.label_categoria_31, 2, 0, 1, 1)
@@ -457,7 +631,7 @@ class Ui_Matriculas(object):
         self.label_categoria_40 = QLabel(self.groupBox_dados_alunos)
         self.label_categoria_40.setObjectName(u"label_categoria_40")
         self.label_categoria_40.setMinimumSize(QSize(137, 0))
-        self.label_categoria_40.setFont(font2)
+        self.label_categoria_40.setFont(font1)
         self.label_categoria_40.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_13.addWidget(self.label_categoria_40, 5, 0, 1, 1)
@@ -503,7 +677,7 @@ class Ui_Matriculas(object):
         self.label_1 = QLabel(self.groupBox_matricula)
         self.label_1.setObjectName(u"label_1")
         self.label_1.setMinimumSize(QSize(0, 0))
-        self.label_1.setFont(font2)
+        self.label_1.setFont(font1)
         self.label_1.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_15.addWidget(self.label_1, 2, 0, 1, 1)
@@ -511,7 +685,7 @@ class Ui_Matriculas(object):
         self.label_8 = QLabel(self.groupBox_matricula)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setMinimumSize(QSize(0, 0))
-        self.label_8.setFont(font2)
+        self.label_8.setFont(font1)
         self.label_8.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_15.addWidget(self.label_8, 3, 0, 1, 1)
@@ -574,7 +748,7 @@ class Ui_Matriculas(object):
         self.label_categoria_27 = QLabel(self.groupBox_dados_responsavel)
         self.label_categoria_27.setObjectName(u"label_categoria_27")
         self.label_categoria_27.setMinimumSize(QSize(137, 0))
-        self.label_categoria_27.setFont(font2)
+        self.label_categoria_27.setFont(font1)
         self.label_categoria_27.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_14.addWidget(self.label_categoria_27, 2, 0, 1, 1)
@@ -589,7 +763,7 @@ class Ui_Matriculas(object):
         self.label_valor_7 = QLabel(self.groupBox_dados_responsavel)
         self.label_valor_7.setObjectName(u"label_valor_7")
         self.label_valor_7.setMinimumSize(QSize(137, 0))
-        self.label_valor_7.setFont(font2)
+        self.label_valor_7.setFont(font1)
         self.label_valor_7.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_14.addWidget(self.label_valor_7, 0, 0, 1, 1)
@@ -606,248 +780,21 @@ class Ui_Matriculas(object):
         self.gridLayout_7.addWidget(self.frame, 0, 3, 1, 1)
 
         self.tabWidget.addTab(self.tab_aluno, "")
-        self.tab_registros_4 = QWidget()
-        self.tab_registros_4.setObjectName(u"tab_registros_4")
-        self.gridLayout_11 = QGridLayout(self.tab_registros_4)
-        self.gridLayout_11.setObjectName(u"gridLayout_11")
-        self.widget_8 = QWidget(self.tab_registros_4)
-        self.widget_8.setObjectName(u"widget_8")
-        self.verticalLayout_4 = QVBoxLayout(self.widget_8)
-        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.reg_mes_filtro = QComboBox(self.widget_8)
-        self.reg_mes_filtro.setObjectName(u"reg_mes_filtro")
 
-        self.verticalLayout_4.addWidget(self.reg_mes_filtro)
-
-        self.reg_table = QTableWidget(self.widget_8)
-        self.reg_table.setObjectName(u"reg_table")
-        self.reg_table.setSizeAdjustPolicy(QAbstractScrollArea.AdjustToContentsOnFirstShow)
-
-        self.verticalLayout_4.addWidget(self.reg_table)
+        self.gridLayout_5.addWidget(self.tabWidget, 0, 0, 1, 1)
 
 
-        self.gridLayout_11.addWidget(self.widget_8, 1, 1, 1, 1)
-
-        self.widget_entradas = QWidget(self.tab_registros_4)
-        self.widget_entradas.setObjectName(u"widget_entradas")
-        self.widget_entradas.setMaximumSize(QSize(530, 16777215))
-        self.verticalLayout_8 = QVBoxLayout(self.widget_entradas)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.groupBox = QGroupBox(self.widget_entradas)
-        self.groupBox.setObjectName(u"groupBox")
-        self.groupBox.setStyleSheet(u"")
-        self.gridLayout_8 = QGridLayout(self.groupBox)
-        self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.gridLayout_8.setVerticalSpacing(25)
-        self.label_valor = QLabel(self.groupBox)
-        self.label_valor.setObjectName(u"label_valor")
-        self.label_valor.setFont(font2)
-        self.label_valor.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_8.addWidget(self.label_valor, 3, 0, 1, 1)
-
-        self.label_data = QLabel(self.groupBox)
-        self.label_data.setObjectName(u"label_data")
-        self.label_data.setFont(font2)
-        self.label_data.setStyleSheet(u"")
-        self.label_data.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_8.addWidget(self.label_data, 2, 0, 1, 1)
-
-        self.label_categoria = QLabel(self.groupBox)
-        self.label_categoria.setObjectName(u"label_categoria")
-        self.label_categoria.setFont(font2)
-        self.label_categoria.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_8.addWidget(self.label_categoria, 4, 0, 1, 1)
-
-        self.reg_data = QDateEdit(self.groupBox)
-        self.reg_data.setObjectName(u"reg_data")
-        self.reg_data.setStyleSheet(u"QDateEdit:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
-        self.reg_data.setAlignment(Qt.AlignCenter)
-        self.reg_data.setCalendarPopup(True)
-
-        self.gridLayout_8.addWidget(self.reg_data, 2, 1, 1, 1)
-
-        self.reg_valor = QDoubleSpinBox(self.groupBox)
-        self.reg_valor.setObjectName(u"reg_valor")
-        sizePolicy.setHeightForWidth(self.reg_valor.sizePolicy().hasHeightForWidth())
-        self.reg_valor.setSizePolicy(sizePolicy)
-        self.reg_valor.setStyleSheet(u"QDoubleSpinBox:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
-        self.reg_valor.setAlignment(Qt.AlignCenter)
-        self.reg_valor.setDecimals(2)
-        self.reg_valor.setMaximum(999999.989999999990687)
-
-        self.gridLayout_8.addWidget(self.reg_valor, 3, 1, 1, 1)
-
-        self.reg_categoria = QComboBox(self.groupBox)
-        self.reg_categoria.addItem("")
-        self.reg_categoria.addItem("")
-        self.reg_categoria.setObjectName(u"reg_categoria")
-        sizePolicy.setHeightForWidth(self.reg_categoria.sizePolicy().hasHeightForWidth())
-        self.reg_categoria.setSizePolicy(sizePolicy)
-        self.reg_categoria.setStyleSheet(u"")
-        self.reg_categoria.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
-
-        self.gridLayout_8.addWidget(self.reg_categoria, 4, 1, 1, 1)
-
-        self.label_descricao = QLabel(self.groupBox)
-        self.label_descricao.setObjectName(u"label_descricao")
-        self.label_descricao.setFont(font2)
-        self.label_descricao.setAlignment(Qt.AlignRight|Qt.AlignTop|Qt.AlignTrailing)
-
-        self.gridLayout_8.addWidget(self.label_descricao, 5, 0, 1, 1)
-
-        self.reg_descricao = QTextEdit(self.groupBox)
-        self.reg_descricao.setObjectName(u"reg_descricao")
-        self.reg_descricao.setStyleSheet(u"")
-
-        self.gridLayout_8.addWidget(self.reg_descricao, 5, 1, 1, 1)
-
-        self.widget_7 = QWidget(self.groupBox)
-        self.widget_7.setObjectName(u"widget_7")
-        self.horizontalLayout = QHBoxLayout(self.widget_7)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer_5)
-
-        self.reg_btn_entrada = QRadioButton(self.widget_7)
-        self.reg_btn_entrada.setObjectName(u"reg_btn_entrada")
-
-        self.horizontalLayout.addWidget(self.reg_btn_entrada)
-
-        self.reg_btn_saida = QRadioButton(self.widget_7)
-        self.reg_btn_saida.setObjectName(u"reg_btn_saida")
-
-        self.horizontalLayout.addWidget(self.reg_btn_saida)
-
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer_6)
-
-
-        self.gridLayout_8.addWidget(self.widget_7, 0, 1, 1, 1)
-
-        self.label_3 = QLabel(self.groupBox)
-        self.label_3.setObjectName(u"label_3")
-
-        self.gridLayout_8.addWidget(self.label_3, 0, 0, 1, 1)
-
-
-        self.verticalLayout_8.addWidget(self.groupBox)
-
-        self.btn = QWidget(self.widget_entradas)
-        self.btn.setObjectName(u"btn")
-        self.horizontalLayout_3 = QHBoxLayout(self.btn)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_3)
-
-        self.btn_registrar = QPushButton(self.btn)
-        self.btn_registrar.setObjectName(u"btn_registrar")
-        self.btn_registrar.setStyleSheet(u"QPushButton {\n"
-"	background-color: rgb(229, 229, 229);\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(203, 203, 203);\n"
-"}\n"
-"")
-
-        self.horizontalLayout_3.addWidget(self.btn_registrar)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_3.addItem(self.horizontalSpacer_4)
-
-
-        self.verticalLayout_8.addWidget(self.btn)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_8.addItem(self.verticalSpacer_2)
-
-
-        self.gridLayout_11.addWidget(self.widget_entradas, 1, 0, 1, 1)
-
-        self.tabWidget.addTab(self.tab_registros_4, "")
-
-        self.gridLayout_5.addWidget(self.tabWidget, 0, 1, 1, 1)
-
-
-        self.gridLayout_6.addWidget(self.wid_principal, 0, 1, 1, 1)
-
-
-        self.horizontalLayout_2.addWidget(self.container)
-
-
-        self.gridLayout_3.addWidget(self.widget_3, 0, 0, 1, 1)
-
-
-        self.gridLayout_2.addWidget(self.widget_2, 0, 0, 1, 1)
-
-
-        self.gridLayout.addWidget(self.widget, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.wid_principal, 1, 1, 1, 1)
 
         Matriculas.setCentralWidget(self.centralwidget)
-        self.menuBar = QMenuBar(Matriculas)
-        self.menuBar.setObjectName(u"menuBar")
-        self.menuBar.setGeometry(QRect(0, 0, 900, 21))
-        self.menuBar.setStyleSheet(u"QMenu:hover {background-color:\"lightgray\";}")
-        self.menusair = QMenu(self.menuBar)
-        self.menusair.setObjectName(u"menusair")
-        self.menusair.setTearOffEnabled(False)
-        Matriculas.setMenuBar(self.menuBar)
         self.statusBar = QStatusBar(Matriculas)
         self.statusBar.setObjectName(u"statusBar")
         Matriculas.setStatusBar(self.statusBar)
-        QWidget.setTabOrder(self.entry_matriculas_responsavel, self.entry_matriculas_contato)
-        QWidget.setTabOrder(self.entry_matriculas_contato, self.entry_matriculas_dia_vencimento)
-        QWidget.setTabOrder(self.entry_matriculas_dia_vencimento, self.entry_matriculas_status_matricula)
-        QWidget.setTabOrder(self.entry_matriculas_status_matricula, self.entry_matriculas_obs)
-        QWidget.setTabOrder(self.entry_matriculas_obs, self.entry_matriculas_mes_mensalidade)
-        QWidget.setTabOrder(self.entry_matriculas_mes_mensalidade, self.btn_matriculas_salvar)
-        QWidget.setTabOrder(self.btn_matriculas_salvar, self.out_matriculas_pendentes)
-        QWidget.setTabOrder(self.out_matriculas_pendentes, self.out_matriculas_vencidos)
-        QWidget.setTabOrder(self.out_matriculas_vencidos, self.out_matriculas_inadimplentes)
-        QWidget.setTabOrder(self.out_matriculas_inadimplentes, self.btn_sair)
-        QWidget.setTabOrder(self.btn_sair, self.tabWidget)
-        QWidget.setTabOrder(self.tabWidget, self.reg_data)
-        QWidget.setTabOrder(self.reg_data, self.reg_valor)
-        QWidget.setTabOrder(self.reg_valor, self.reg_categoria)
-        QWidget.setTabOrder(self.reg_categoria, self.reg_descricao)
-        QWidget.setTabOrder(self.reg_descricao, self.btn_registrar)
-        QWidget.setTabOrder(self.btn_registrar, self.btn_sair)
-        QWidget.setTabOrder(self.btn_sair, self.tabWidget)
-        QWidget.setTabOrder(self.tabWidget, self.entry_matriculas_mes_mensalidade)
-        QWidget.setTabOrder(self.entry_matriculas_mes_mensalidade, self.btn_matriculas_salvar)
-        QWidget.setTabOrder(self.btn_matriculas_salvar, self.out_matriculas_pendentes)
-        QWidget.setTabOrder(self.out_matriculas_pendentes, self.out_matriculas_vencidos)
-        QWidget.setTabOrder(self.out_matriculas_vencidos, self.out_matriculas_inadimplentes)
-        QWidget.setTabOrder(self.out_matriculas_inadimplentes, self.entry_matriculas_dia_vencimento)
-        QWidget.setTabOrder(self.entry_matriculas_dia_vencimento, self.entry_matriculas_status_matricula)
-        QWidget.setTabOrder(self.entry_matriculas_status_matricula, self.entry_matriculas_obs)
-        QWidget.setTabOrder(self.entry_matriculas_obs, self.entry_matriculas_contato)
-        QWidget.setTabOrder(self.entry_matriculas_contato, self.entry_matriculas_responsavel)
-        QWidget.setTabOrder(self.entry_matriculas_responsavel, self.reg_data)
-        QWidget.setTabOrder(self.reg_data, self.reg_valor)
-        QWidget.setTabOrder(self.reg_valor, self.reg_categoria)
-        QWidget.setTabOrder(self.reg_categoria, self.reg_descricao)
-        QWidget.setTabOrder(self.reg_descricao, self.btn_registrar)
-
-        self.menuBar.addAction(self.menusair.menuAction())
-        self.menusair.addAction(self.menu_sair)
 
         self.retranslateUi(Matriculas)
 
         self.btn_sair.setDefault(False)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Matriculas)
@@ -858,9 +805,31 @@ class Ui_Matriculas(object):
         self.actionlembrar.setText(QCoreApplication.translate("Matriculas", u"Lembre de mim", None))
         self.actionversao.setText(QCoreApplication.translate("Matriculas", u"vers\u00e3o", None))
         self.menu_sair.setText(QCoreApplication.translate("Matriculas", u"sair", None))
-        self.user_png.setText("")
+        self.btn_menu.setText("")
+        self.btn_config.setText("")
+        self.btn_sair.setText("")
         self.user_name.setText(QCoreApplication.translate("Matriculas", u"USUARIO", None))
-        self.label.setText("")
+        self.logo.setText("")
+        self.reg_btn_atualizar.setText("")
+        self.groupBox.setTitle("")
+        self.label_valor.setText(QCoreApplication.translate("Matriculas", u"Valor R$:", None))
+        self.label_data.setText(QCoreApplication.translate("Matriculas", u"Data:", None))
+        self.label_categoria.setText(QCoreApplication.translate("Matriculas", u"Categoria:", None))
+        self.reg_categoria.setItemText(0, QCoreApplication.translate("Matriculas", u"Grupo Focus", None))
+        self.reg_categoria.setItemText(1, QCoreApplication.translate("Matriculas", u"Outros", None))
+
+        self.label_descricao.setText(QCoreApplication.translate("Matriculas", u"Descri\u00e7\u00e3o:", None))
+        self.reg_descricao.setHtml(QCoreApplication.translate("Matriculas", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
+        self.reg_btn_entrada.setText(QCoreApplication.translate("Matriculas", u"entrada", None))
+        self.reg_btn_saida.setText(QCoreApplication.translate("Matriculas", u"sa\u00edda", None))
+        self.label_3.setText(QCoreApplication.translate("Matriculas", u"Tipo de Registro:", None))
+        self.reg_btn_registrar.setText(QCoreApplication.translate("Matriculas", u"registrar", None))
+        self.reg_btn_limpar.setText(QCoreApplication.translate("Matriculas", u"limpar", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_registros_4), QCoreApplication.translate("Matriculas", u"Registros", None))
         self.entry_matriculas_mes_mensalidade.setItemText(0, QCoreApplication.translate("Matriculas", u"07/2023", None))
         self.entry_matriculas_mes_mensalidade.setItemText(1, QCoreApplication.translate("Matriculas", u"06/2023", None))
         self.entry_matriculas_mes_mensalidade.setItemText(2, QCoreApplication.translate("Matriculas", u"05/2023", None))
@@ -939,24 +908,5 @@ class Ui_Matriculas(object):
         self.label_categoria_27.setText(QCoreApplication.translate("Matriculas", u"contato:", None))
         self.label_valor_7.setText(QCoreApplication.translate("Matriculas", u"respons\u00e1vel:", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_aluno), QCoreApplication.translate("Matriculas", u"Aluno", None))
-        self.groupBox.setTitle("")
-        self.label_valor.setText(QCoreApplication.translate("Matriculas", u"Valor R$:", None))
-        self.label_data.setText(QCoreApplication.translate("Matriculas", u"Data:", None))
-        self.label_categoria.setText(QCoreApplication.translate("Matriculas", u"Categoria:", None))
-        self.reg_categoria.setItemText(0, QCoreApplication.translate("Matriculas", u"Grupo Focus", None))
-        self.reg_categoria.setItemText(1, QCoreApplication.translate("Matriculas", u"Outros", None))
-
-        self.label_descricao.setText(QCoreApplication.translate("Matriculas", u"Descri\u00e7\u00e3o:", None))
-        self.reg_descricao.setHtml(QCoreApplication.translate("Matriculas", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
-        self.reg_btn_entrada.setText(QCoreApplication.translate("Matriculas", u"entrada", None))
-        self.reg_btn_saida.setText(QCoreApplication.translate("Matriculas", u"sa\u00edda", None))
-        self.label_3.setText(QCoreApplication.translate("Matriculas", u"Tipo de Registro:", None))
-        self.btn_registrar.setText(QCoreApplication.translate("Matriculas", u"registrar", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_registros_4), QCoreApplication.translate("Matriculas", u"Registros", None))
-        self.menusair.setTitle(QCoreApplication.translate("Matriculas", u"Op\u00e7\u00f5es", None))
     # retranslateUi
 

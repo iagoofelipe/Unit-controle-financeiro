@@ -4,10 +4,11 @@ from PySide6.QtCore import QObject, Slot, QThreadPool
 # módulos locais
 from .src import Database
 from .src.qthread import Worker
-from model.model import Model
 
 class MatriculasController(object):
-    _model = Model
+    # from model.model import Model
+    
+    # _model = Model
     db = Database()
     
     @Slot(str)

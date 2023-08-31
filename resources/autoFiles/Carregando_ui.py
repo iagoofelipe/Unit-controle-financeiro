@@ -75,24 +75,24 @@ class Ui_Carregando(object):
         self.widget.setObjectName(u"widget")
         self.widget.setMinimumSize(QSize(60, 28))
         self.widget.setMaximumSize(QSize(60, 28))
+        self.widget.setStyleSheet(u"border-radius: 5")
         self.gridLayout = QGridLayout(self.widget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.circulo2 = QWidget(self.widget)
         self.circulo2.setObjectName(u"circulo2")
-        self.circulo2.setStyleSheet(u"background-color: rgb(165, 166, 159); border-radius: 5")
+        self.circulo2.setStyleSheet(u"background-color: rgb(165, 166, 159)")
 
         self.gridLayout.addWidget(self.circulo2, 0, 2, 1, 1)
 
         self.circulo3 = QWidget(self.widget)
         self.circulo3.setObjectName(u"circulo3")
-        self.circulo3.setStyleSheet(u"background-color: rgb(165, 166, 159); border-radius: 5")
+        self.circulo3.setStyleSheet(u"background-color: rgb(165, 166, 159)")
 
         self.gridLayout.addWidget(self.circulo3, 0, 3, 1, 1)
 
         self.circulo1 = QWidget(self.widget)
         self.circulo1.setObjectName(u"circulo1")
-        self.circulo1.setStyleSheet(u"border-radius: 5;\n"
-"background-color: rgb(119, 120, 115);")
+        self.circulo1.setStyleSheet(u"background-color: rgb(119, 120, 115);")
 
         self.gridLayout.addWidget(self.circulo1, 0, 0, 1, 1)
 
