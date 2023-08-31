@@ -1,5 +1,6 @@
 # módulos python
 from PySide6.QtCore import QObject, Signal
+from PySide6.QtWidgets import QMainWindow
 from my_tools import encode, File, resource_path
 
 # módulos locais
@@ -9,6 +10,7 @@ from .Matriculas_model import MatriculasModel
 class Model(QObject, MatriculasModel):    
     #----------------------------------------------------
     # Signal
+    uiChanged = Signal(tuple)
     connectionChanged = Signal(bool)
     errorDefined = Signal()
     loginPermission = Signal(bool)
@@ -18,6 +20,10 @@ class Model(QObject, MatriculasModel):
 
     #----------------------------------------------------
     # property
+    @property
+    def ui(self):
+        return self._ui
+    
     @property
     def msgError(self):
         return self._msgError
@@ -44,6 +50,11 @@ class Model(QObject, MatriculasModel):
     
     #----------------------------------------------------
     # setter
+    def setUi(self, master, __obj: QMainWindow):
+        self._ui = __obj
+        self.uiChanged.emit((master, __obj))
+
+
     @msgError.setter
     def msgError(self, value: str):
         self._msgError = value

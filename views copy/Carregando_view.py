@@ -1,10 +1,9 @@
 from .ui import Ui_Carregando
 from model.model import Model
 from controllers.main_ctrl import MainController
-from PySide6.QtCore import QTimer
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtCore import QTimer, QObject
 
-class Carregando_view(QMainWindow, Ui_Carregando):
+class Carregando_view(QObject, Ui_Carregando):
     def __init__(self, master):
         super(Carregando_view, self).__init__()
         from .main_view import MainView
@@ -13,10 +12,7 @@ class Carregando_view(QMainWindow, Ui_Carregando):
         self._model: Model = master._model
         self._main_controller: MainController = master._main_controller
         self.timer = QTimer(self)
-        # self.setGeometry(master.geometry())
-
-        # self.setupUi(self)
-        # self.show()
+        
         self.__widNum = 1
 
         self.timer.timeout.connect(self.startAnim)

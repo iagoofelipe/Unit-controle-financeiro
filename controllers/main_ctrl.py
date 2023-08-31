@@ -1,5 +1,6 @@
 # módulos python
 from PySide6.QtCore import QObject, Slot, QThreadPool
+from PySide6.QtWidgets import QMainWindow
 
 # módulos locais
 from .src import Database
@@ -90,9 +91,20 @@ class MainController(QObject, MatriculasController):
 
         if objectName == "Carregando" and value:
                 self._view._ui.label_processo.setText("êxito na conexão!")
-                self._view._ui_atual = dict(ui=self._view.uis["Login"], objectName="Login")
+                self._view._ui_atual = dict(objectName="Login")
                 self._view.timer.singleShot(2000, lambda: self._view.changeUi(**self._view._ui_atual))
 
         if objectName != "Carregando" and value:
-            self._view._ui_atual = dict(ui=self._view.uis["Login"], objectName="Login")
+            self._view._ui_atual = dict(objectName="Login")
             self._view.changeUi(**self._view._ui_atual)
+
+
+    @Slot(tuple)
+    def on_uiChanged(self, args):
+        master = args[0]
+        ui = args[1]()
+
+        master.close()
+        ui.setupUi(ui)
+        ui.show()
+        ui.setGeometry(master.geometry())

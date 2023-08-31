@@ -1,34 +1,24 @@
 from PySide6.QtCore import QTimer, QObject, QDate
-from PySide6.QtWidgets import QMainWindow
 
 from .ui import Ui_Matriculas
 from model.model import Model
 from controllers.main_ctrl import MainController
-from .sidebar import Sidebar
-from .app import App
+from .sidebar import Sidebar 
 
-class Matriculas_view(QMainWindow, Ui_Matriculas, App):
+class Matriculas_view(QObject, Ui_Matriculas):
     def __init__(self, master):
         super(Matriculas_view, self).__init__()
+        from .main_view import MainView
+        
+        self.master: MainView = master
         self._model: Model = master._model
         self._main_controller: MainController = master._main_controller
         self.timer = QTimer(self)
         self.sidebar: Sidebar = None
-        self.changeUi = master.changeUi
+        self.changeUi = self.master.changeUi
 
-        geometry = master.geometry()
-        print(geometry)
-        
-        master.close()
-        self.setupUi(self)
-        self.show()
-        # self.start()
-        self.setGeometry(geometry)
 
     def start(self):
-        pass
-
-    def start1(self):
         self.sidebar = Sidebar(self)
         self.user_name.setText(self._model.user)
         self.btnLimparAction()
@@ -50,7 +40,8 @@ class Matriculas_view(QMainWindow, Ui_Matriculas, App):
         self.reg_btn_entrada.click()
         self.reg_mes_filtro.currentTextChanged.connect(self.setRegTableValuesFilter)
         self.reg_btn_atualizar.clicked.connect(lambda: self._main_controller.regUpdateValues())
-
+        # self.timer.timeout.connect(self._main_controller.regUpdateValues)
+        # self.timer.start(5000)
 
     def getRegFromValues(self):
         data = self.reg_data.date()
