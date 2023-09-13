@@ -110,19 +110,33 @@ class Ui_Config(object):
 
         self.formLayout_2.setWidget(0, QFormLayout.SpanningRole, self.atualizar_auto)
 
-        self.periodo_atualizar = QSpinBox(self.groupBox_3)
-        self.periodo_atualizar.setObjectName(u"periodo_atualizar")
-        self.periodo_atualizar.setReadOnly(False)
-        self.periodo_atualizar.setMinimum(5000)
-        self.periodo_atualizar.setMaximum(999999999)
+        self.timeout = QSpinBox(self.groupBox_3)
+        self.timeout.setObjectName(u"timeout")
+        self.timeout.setMinimumSize(QSize(80, 0))
+        self.timeout.setReadOnly(False)
+        self.timeout.setMinimum(5000)
+        self.timeout.setMaximum(999999999)
 
-        self.formLayout_2.setWidget(2, QFormLayout.LabelRole, self.periodo_atualizar)
+        self.formLayout_2.setWidget(2, QFormLayout.LabelRole, self.timeout)
 
         self.label_10 = QLabel(self.groupBox_3)
         self.label_10.setObjectName(u"label_10")
         self.label_10.setOpenExternalLinks(False)
 
         self.formLayout_2.setWidget(2, QFormLayout.FieldRole, self.label_10)
+
+        self.regTable_lengh = QSpinBox(self.groupBox_3)
+        self.regTable_lengh.setObjectName(u"regTable_lengh")
+        self.regTable_lengh.setMinimumSize(QSize(80, 0))
+        self.regTable_lengh.setMinimum(5)
+        self.regTable_lengh.setMaximum(1000)
+
+        self.formLayout_2.setWidget(3, QFormLayout.LabelRole, self.regTable_lengh)
+
+        self.label_5 = QLabel(self.groupBox_3)
+        self.label_5.setObjectName(u"label_5")
+
+        self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.label_5)
 
 
         self.verticalLayout.addWidget(self.groupBox_3)
@@ -177,6 +191,8 @@ class Ui_Config(object):
         self.groupBox_3.setTitle(QCoreApplication.translate("Config", u"Opcionais", None))
         self.atualizar_auto.setText(QCoreApplication.translate("Config", u"atualizar dados automaticamente", None))
         self.label_10.setText(QCoreApplication.translate("Config", u"per\u00edodo para atualiza\u00e7\u00e3o de dados (ms)", None))
+        self.regTable_lengh.setPrefix("")
+        self.label_5.setText(QCoreApplication.translate("Config", u"limite de amostragem para tabela Registros", None))
         self.btn_cancelar.setText(QCoreApplication.translate("Config", u"cancelar", None))
         self.btn_aplicar.setText(QCoreApplication.translate("Config", u"aplicar", None))
     # retranslateUi

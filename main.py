@@ -1,16 +1,16 @@
 import sys
 from PySide6.QtWidgets import QApplication
-from model.model import Model
-from controllers.main import MainController
-from views.main import MainView
+from model import MMain
+from controller import CMain
+from view import VMain
 
 
 class App(QApplication):
     def __init__(self, sys_argv):
         super(App, self).__init__(sys_argv)
-        self.model = Model() # funções e ações
-        self.main_controller = MainController(self.model)
-        self.main_view = MainView(self.model, self.main_controller)
+        self.main_model = MMain() # funções e ações
+        self.main_controller = CMain(self.main_model)
+        self.main_view = VMain(self.main_model, self.main_controller)
         self.main_view.show()
 
 

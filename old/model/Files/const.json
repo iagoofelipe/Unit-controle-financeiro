@@ -1,11 +1,10 @@
 {
     "key":"d9tiHdGYdvpK8hqwG7G0FjJeIm151UqXQDoyB10QydI=",
     "login":{
-        "password":"gAAAAABk9oCE64P5705mGbXUdyYmzePJcw9xtqsOHoCAlPLEeVqgWbbZVbH5EpXiETvOqv-ntWuWDh3vbCg4txfFkMmSE9qYog==",
-        "remember":false,
-        "user":"AA"
+        "password":"gAAAAABk8PlN_Pfqef0cnL7uSGq58VEvjCFpqzA_Yq4-aselB0Jc1FraspTq-PkSkf1ami_3c8PPV_l8WFUlM3dOPj4BtNCjjw==",
+        "remember":true,
+        "user":"IAGO"
     },
-    "regTable_lengh":5,
     "registros":{
         "categoria_entradas":[
             "GRUPO FOCUS",
@@ -17,5 +16,5 @@
             "OUTROS"
         ]
     },
-    "timeout":5000
+    "windowTitle":"Unit - Controle Financeiro"
 }
