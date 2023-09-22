@@ -76,7 +76,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="../../../../git/Unit-controle-financeiro/resources/autoFiles/qrc.qrc">:/start/img/alerta.png</pixmap>
+          <pixmap resource="../autoFiles/qrc.qrc">:/start/img/alerta.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -119,8 +119,8 @@
   </widget>
  </widget>
  <resources>
-  <include location="../../../../git/Unit-controle-financeiro/resources/qrc.qrc"/>
-  <include location="../../../../git/Unit-controle-financeiro/resources/autoFiles/qrc.qrc"/>
+  <include location="../autoFiles/qrc.qrc"/>
+  <include location="../autoFiles/qrc.qrc"/>
  </resources>
  <connections/>
 </ui>
