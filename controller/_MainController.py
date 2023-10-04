@@ -20,7 +20,10 @@ class MainController(QObject):
         logging.debug("MainModel inicializando Server")
         self._server = Server()
         self._requests = self._server.requests
+
+        self._main_model._requests = self._requests
         self._main_model.defaults = self._requests.defaults
+        self._main_model._server = self._server
         self._main_model.cfg_file = self._server.getCfgFile(resource_path("Files\default.ini"))
         
         time.sleep(2)

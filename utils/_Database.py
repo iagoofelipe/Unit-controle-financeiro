@@ -58,8 +58,10 @@ class Database:
         
         command = f'INSERT INTO {self.table} ({keys}) VALUES ({values})'
 
+        self.connect()
         self.cursor.execute(command)
         self.conexao.commit()
+        self.close()
     #------------------------------------------------------------------------------------
     # read
     def read(self, column='*', where=None, value=None, order_by=None):
@@ -80,10 +82,10 @@ class Database:
         self.close()
         return retonro
     
-    def readLastsColumns(self, numRange: int) -> list:
+    def readLastsRowsByIdRange(self, numRange: int, arg='') -> list:
         """ este método funciona apenas com tabelas que possuem `ID AUTO_INCREMENT` """
         lastId = self.lastRowId
-        command = f"SELECT * FROM {self.__table} WHERE ID > {lastId-numRange-2} AND ID < {lastId+1}"
+        command = f"SELECT * FROM {self.__table} WHERE ID > {lastId-numRange} AND ID < {lastId+1} {arg}"
 
         return self.command(command, "fetchall")
 

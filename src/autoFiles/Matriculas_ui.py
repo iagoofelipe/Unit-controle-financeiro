@@ -371,14 +371,7 @@ class Ui_Matriculas(object):
         self.entry_matriculas_mes_mensalidade.setMaximumSize(QSize(16777215, 16777215))
         self.entry_matriculas_mes_mensalidade.setLayoutDirection(Qt.LeftToRight)
         self.entry_matriculas_mes_mensalidade.setAutoFillBackground(False)
-        self.entry_matriculas_mes_mensalidade.setStyleSheet(u"QComboBox {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"}\n"
-"\n"
-"QComboBox:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
+        self.entry_matriculas_mes_mensalidade.setStyleSheet(u"")
         self.entry_matriculas_mes_mensalidade.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
 
         self.horizontalLayout_6.addWidget(self.entry_matriculas_mes_mensalidade)
@@ -390,7 +383,7 @@ class Ui_Matriculas(object):
         self.btn_matriculas_salvar = QPushButton(self.widget_26)
         self.btn_matriculas_salvar.setObjectName(u"btn_matriculas_salvar")
         self.btn_matriculas_salvar.setMinimumSize(QSize(71, 20))
-        self.btn_matriculas_salvar.setStyleSheet(u"background-color: rgb(229, 229, 229);")
+        self.btn_matriculas_salvar.setStyleSheet(u"")
 
         self.horizontalLayout_6.addWidget(self.btn_matriculas_salvar)
 

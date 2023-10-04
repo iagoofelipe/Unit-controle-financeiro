@@ -16,3 +16,5 @@ class LoginModel(QObject):
         except:
             self.user = None
             self.password = None
+
+        self._main_model.user = str(self.user)

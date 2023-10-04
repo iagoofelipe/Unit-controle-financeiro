@@ -26,7 +26,7 @@ class MainView(QMainWindow):
         self.setUiByName("Login")
 
     def setUiByName(self, uiName):
-        try:
+        # try:
             match uiName:
                 case "Login":
                     VLogin(self)
@@ -39,6 +39,10 @@ class MainView(QMainWindow):
                 case _:
                     logging.error("MainView.setUiByName UNKNOW UINAME")
                     exit()
-        except:
-            self._main_model.errorMessage = "LOADING_ERROR: erro inesperado durante a inicialização, feche o programa e tente novamente"
-            VError(self)
+        # except:
+        #     self._main_model.errorMessage = "LOADING_ERROR: erro inesperado durante a inicialização, feche o programa e tente novamente"
+        #     VError(self)
+
+    def logout(self):
+        self._main_model.logout()
+        self.setUiByName("Login")

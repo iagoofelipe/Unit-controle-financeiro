@@ -35,6 +35,7 @@ class VLogin(QObject, Ui_Login):
     def on_authenticated(self, value: bool):
         if value:
             logging.info("acesso autenticado com sucesso")
+            self._main_model.user = self.login_entry_user.text()
             self._main_view.setUiByName("Matriculas")
         else:
             self.popup.show()

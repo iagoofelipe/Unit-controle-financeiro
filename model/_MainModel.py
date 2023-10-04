@@ -1,14 +1,11 @@
 # módulos python
-from PySide6.QtCore import QObject, Signal
-import threading, logging, time
+from PySide6.QtCore import QObject
+from my_tools import resource_path
 
 # módulos locais
 from Include.utils import Crypto
 
 class MainModel(QObject):
-    #----------------------------------------------------
-    # Signal
-
     def __init__(self):
         super().__init__()
 
@@ -17,8 +14,9 @@ class MainModel(QObject):
     version = None # by defaults
     symmetric_key = None # by defaults
     _defaults = None
-    cfg_file = None # set by thread init
+    cfg_file = None # set by thread init (MainController)
     errorMessage = "UNKNOWN_ERROR"
+    user = "USUÁRIO"
 
     #----------------------------------------------------
     # propriedades
@@ -33,3 +31,11 @@ class MainModel(QObject):
         self.version = self._defaults['version']
 
         self.crypto = Crypto(self.symmetric_key)
+        # self.user = self.crypto.decode(self.cfg_file["LOGIN"]["user"])
+
+    def logout(self):
+        self.cfg_file["LOGIN"]["remember"] = "False"
+        self.cfg_file["LOGIN"]["user"] = "None"
+        self.cfg_file["LOGIN"]["password"] = "None"
+
+        self._server.setCfgFile(resource_path("Files\default.ini"), cfg=self.cfg_file)

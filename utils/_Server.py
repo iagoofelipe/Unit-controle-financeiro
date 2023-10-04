@@ -29,17 +29,21 @@ class Server:
                 return True
         return False
     
-    def setCfgFile(self, fileName, **kwargs) -> None:
-        if not os.path.exists(fileName):
-            with open(fileName, 'w') as f:
-                f.write('')
+    def setCfgFile(self, file: str, **kwargs) -> None:
+        if 'cfg' in kwargs:
+            config = kwargs['cfg']
 
-        config = self.getCfgFile(fileName)
-        for key, value in kwargs.items():
-            config[key] = value
+        else:        
+            if not os.path.exists(file):
+                with open(file, 'w') as f:
+                    f.write('')
 
-        with open(fileName, 'w') as cfg:
-            config.write(cfg)
+            config = self.getCfgFile(file)
+            for key, value in kwargs.items():
+                config[key] = value
+
+        with open(file, 'w') as cfg:
+            config.write(cfg)        
 
     def getCfgFile(self, fileName) -> configparser.ConfigParser:
         config = configparser.ConfigParser()

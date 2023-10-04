@@ -703,14 +703,7 @@ p, li { white-space: pre-wrap; }
                        <bool>false</bool>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">QComboBox {
-	background-color: &quot;white&quot;;
-	border: 0;
-}
-
-QComboBox:hover {
-	background-color: #e5e5e5;
-}</string>
+                       <string notr="true"/>
                       </property>
                       <property name="sizeAdjustPolicy">
                        <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
@@ -774,7 +767,7 @@ QComboBox:hover {
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: rgb(229, 229, 229);</string>
+                       <string notr="true"/>
                       </property>
                       <property name="text">
                        <string>salvar</string>
