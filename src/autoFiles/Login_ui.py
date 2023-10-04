@@ -26,7 +26,7 @@ class Ui_Login(object):
     def setupUi(self, Login):
         if not Login.objectName():
             Login.setObjectName(u"Login")
-        Login.resize(900, 700)
+        # Login.resize(900, 700)
         Login.setMinimumSize(QSize(900, 700))
         Login.setStyleSheet(u"")
         self.actionlembrar = QAction(Login)

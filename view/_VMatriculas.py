@@ -30,6 +30,7 @@ class VMatriculas(QObject, Ui_Matriculas, App):
         self.reg_btn_limpar.clicked.connect(self.action_btn_limpar)
         self.reg_btn_atualizar.clicked.connect(lambda: self._controller.typeRegistroChanged.emit(self._model.typeRegistro))
         self.btn_sair.clicked.connect(self._main_view.logout)
+        self.btn_config.clicked.connect(lambda: self._main_view.setUiByName("Config"))
 
         self.reg_btn_entrada.click()
         usuario = self._model.user.upper() if self._model.user != None else "USUÁRIO"
@@ -46,7 +47,10 @@ class VMatriculas(QObject, Ui_Matriculas, App):
 
     @Slot()
     def on_regTabValuesChanged(self):
-        self.setTableWidgetValues(self.reg_table, self._model.reg_values, ["ID", "DESCRIÇÃO", "CATEGORIA", "DATA", "PAGAMENTO", "VALOR"])
+        try:
+            self.setTableWidgetValues(self.reg_table, self._model.reg_values, ["ID", "DESCRIÇÃO", "CATEGORIA", "DATA", "PAGAMENTO", "VALOR"])
+        except RuntimeError: # caso já tenha sido alterada a interface e o item não exista mais
+            pass
 
     def action_btn_registrar(self):
         data = self.reg_data.date().toString("dd/MM/yyyy")
@@ -56,6 +60,7 @@ class VMatriculas(QObject, Ui_Matriculas, App):
 
         self._model.setDbRegValues(dict(data=data, valor=valor, categoria=categoria, descricao=descricao))
         self._controller.typeRegistroChanged.emit(self._model.typeRegistro)
+        self.reg_btn_limpar.click()
 
     def action_btn_limpar(self):
         self.reg_data.setDate(dt.now())

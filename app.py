@@ -1,5 +1,5 @@
 # módulos python
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QMainWindow
 import sys, logging, os
 
 # módulos locais

@@ -155,12 +155,11 @@ class Database:
 
     # testing connection
     def test_connection(self) -> bool:
-        self.connect()
         try:
+            self.connect()
             test = self.conexao.is_connected()
             self.close()
-        
-        except AttributeError:
+        except:
             test = False
 
         return test

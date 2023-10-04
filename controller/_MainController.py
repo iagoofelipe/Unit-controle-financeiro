@@ -20,7 +20,7 @@ class MainController(QObject):
         logging.debug("MainModel inicializando Server")
         self._server = Server()
         self._requests = self._server.requests
-
+            
         self._main_model._requests = self._requests
         self._main_model.defaults = self._requests.defaults
         self._main_model._server = self._server

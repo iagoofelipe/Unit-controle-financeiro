@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
+    <width>1616</width>
     <height>700</height>
    </rect>
   </property>
@@ -635,7 +635,7 @@ p, li { white-space: pre-wrap; }
             <widget class="QWidget" name="widget_4" native="true">
              <property name="maximumSize">
               <size>
-               <width>400</width>
+               <width>16777215</width>
                <height>16777215</height>
               </size>
              </property>
@@ -992,6 +992,12 @@ p, li { white-space: pre-wrap; }
            </item>
            <item row="0" column="3">
             <widget class="QFrame" name="frame">
+             <property name="maximumSize">
+              <size>
+               <width>518</width>
+               <height>16777215</height>
+              </size>
+             </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
              </property>
@@ -1434,6 +1440,12 @@ QLineEdit:hover{background-color: #e5e5e5}
                      <height>0</height>
                     </size>
                    </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>138</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
                      <family>Yu Gothic UI</family>
@@ -1454,6 +1466,12 @@ QLineEdit:hover{background-color: #e5e5e5}
                     <size>
                      <width>0</width>
                      <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>138</width>
+                     <height>16777215</height>
                     </size>
                    </property>
                    <property name="font">

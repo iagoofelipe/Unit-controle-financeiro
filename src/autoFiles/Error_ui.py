@@ -23,7 +23,7 @@ class Ui_Error(object):
     def setupUi(self, Error):
         if not Error.objectName():
             Error.setObjectName(u"Error")
-        Error.resize(900, 700)
+        # Error.resize(900, 700)
         Error.setMinimumSize(QSize(900, 700))
         self.centralwidget = QWidget(Error)
         self.centralwidget.setObjectName(u"centralwidget")

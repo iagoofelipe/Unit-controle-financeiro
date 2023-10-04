@@ -29,7 +29,7 @@ class Ui_Matriculas(object):
     def setupUi(self, Matriculas):
         if not Matriculas.objectName():
             Matriculas.setObjectName(u"Matriculas")
-        Matriculas.resize(900, 700)
+        # Matriculas.resize(1616, 700)
         Matriculas.setMinimumSize(QSize(900, 700))
         Matriculas.setStyleSheet(u"")
         self.actionlembrar = QAction(Matriculas)
@@ -340,7 +340,7 @@ class Ui_Matriculas(object):
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.widget_4 = QWidget(self.tab_aluno)
         self.widget_4.setObjectName(u"widget_4")
-        self.widget_4.setMaximumSize(QSize(400, 16777215))
+        self.widget_4.setMaximumSize(QSize(16777215, 16777215))
         self.widget_4.setStyleSheet(u"QLabel {color:\"white \"}")
         self.verticalLayout_17 = QVBoxLayout(self.widget_4)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
@@ -485,6 +485,7 @@ class Ui_Matriculas(object):
 
         self.frame = QFrame(self.tab_aluno)
         self.frame.setObjectName(u"frame")
+        self.frame.setMaximumSize(QSize(518, 16777215))
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.gridLayout_9 = QGridLayout(self.frame)
@@ -632,6 +633,7 @@ class Ui_Matriculas(object):
         self.label_1 = QLabel(self.groupBox_matricula)
         self.label_1.setObjectName(u"label_1")
         self.label_1.setMinimumSize(QSize(0, 0))
+        self.label_1.setMaximumSize(QSize(138, 16777215))
         self.label_1.setFont(font1)
         self.label_1.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
@@ -640,6 +642,7 @@ class Ui_Matriculas(object):
         self.label_8 = QLabel(self.groupBox_matricula)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setMinimumSize(QSize(0, 0))
+        self.label_8.setMaximumSize(QSize(138, 16777215))
         self.label_8.setFont(font1)
         self.label_8.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 

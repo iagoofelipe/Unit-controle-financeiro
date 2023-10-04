@@ -15,7 +15,13 @@ class ModelMatriculas(QObject):
         self._main_model = self._view._main_model
         self.user = self._main_model.user
 
-    def getRegistroValues(self, _type:Literal["entradas", "saidas"]="entradas", limit:int=20):
+    def getRegistroValues(self, _type:Literal["entradas", "saidas"]="entradas", limit=None):
+        if limit == None:
+            try:
+                limit = int(self._main_model.cfg_file['DEFAULT']['tabreg_length'])
+            except:
+                limit = 20
+        
         self.db.set_table(_type)
         self.reg_values = self.db.readLastsRowsByIdRange(limit)
         self.reg_values.reverse()

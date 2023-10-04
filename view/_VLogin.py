@@ -23,6 +23,8 @@ class VLogin(QObject, Ui_Login):
 
         self.btn_login.clicked.connect(self._controller.on_btnLoginPressed)
         self._controller.authenticated.connect(self.on_authenticated)
+        self.login_entry_password.returnPressed.connect(lambda: self.btn_login.click())
+        self.login_entry_user.returnPressed.connect(lambda: self.btn_login.click())
 
         # caso tenha sido iniciado e default.ini LOGIN.remember True
         if self._model.cfg['remember'] == "True" and self.login_entry_user.text() == "":

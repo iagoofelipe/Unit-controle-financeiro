@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>465</width>
-    <height>402</height>
+    <height>403</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -22,27 +22,37 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QGroupBox" name="groupBox">
+     <widget class="QGroupBox" name="group_pacotes">
       <property name="title">
        <string>Pacotes</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
-       <item row="1" column="1">
-        <widget class="QPushButton" name="btn_path_executavel">
-         <property name="text">
-          <string>Browse...</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>executável da aplicação:</string>
+          <string>Pasta de destino para exportações (padrão):</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLineEdit" name="path_executavel"/>
+        <widget class="QLineEdit" name="entry_path_profiles">
+         <property name="text">
+          <string>aaa</string>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Normal</enum>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="btn_browse">
+         <property name="text">
+          <string>Browse...</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -53,65 +63,17 @@
        <string>Descrição</string>
       </property>
       <layout class="QFormLayout" name="formLayout">
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>Arquitetura:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="label_9">
-         <property name="text">
-          <string>MVC</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="minimumSize">
-          <size>
-           <width>106</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Linguagem:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Python</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>Versão:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
         <widget class="QLabel" name="label_6">
          <property name="text">
           <string>Build:</string>
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QLabel" name="versao">
-         <property name="text">
-          <string>1.0</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
+       <item row="0" column="1">
         <widget class="QLabel" name="build">
          <property name="text">
-          <string>1.0.1</string>
+          <string>-VERSION-</string>
          </property>
         </widget>
        </item>
@@ -119,7 +81,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QGroupBox" name="groupBox_3">
+     <widget class="QGroupBox" name="group_opcionais">
       <property name="title">
        <string>Opcionais</string>
       </property>
@@ -182,7 +144,7 @@
        <item row="3" column="1">
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>limite de amostragem para tabela Registros</string>
+          <string>limite de requisições para tabela Registros (diretamente proporicional ao tempo)</string>
          </property>
         </widget>
        </item>
@@ -243,9 +205,8 @@
     </item>
    </layout>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
- <resources>
-  <include location="../autoFiles/qrc.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
