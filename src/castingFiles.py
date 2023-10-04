@@ -3,6 +3,6 @@ import sys, os
 fileName = sys.argv[1]
 
 if fileName == "qrc":
-    os.system(r"pyside6-rcc resources\autoFiles\qrc.qrc -o resources\autoFiles\qrc_rc.py")
+    os.system(r"pyside6-rcc Include\src\autoFiles\qrc.qrc -o Include\src\autoFiles\qrc_rc.py")
 else:
-    os.system(r"pyside6-uic resources\uiFiles\{fileName}.ui -o resources\autoFiles\{fileName}_ui.py".format(fileName=fileName))
+    os.system(r"pyside6-uic Include\src\uiFiles\{fileName}.ui -o Include\src\autoFiles\{fileName}_ui.py".format(fileName=fileName))

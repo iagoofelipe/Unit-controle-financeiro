@@ -5,7 +5,7 @@ Construído para ser utilizado como requisições GET | POST
 
 from ._Database import Database
 from ._Requests import Requests
-import logging
+import logging, configparser, os
 
 class Server:
     def __init__(self):
@@ -19,7 +19,7 @@ class Server:
     def checkUserPassword(self, user, password):
         """ verifica se o usuário e senha são válidos """
         self.db.set_table("users")
-        results = self.db.read(where='user', value='user')
+        results = self.db.read(where='user', value=user)
         
         if len(results) == 0:
             return False
@@ -28,3 +28,20 @@ class Server:
             if password == _password:
                 return True
         return False
+    
+    def setCfgFile(self, fileName, **kwargs) -> None:
+        if not os.path.exists(fileName):
+            with open(fileName, 'w') as f:
+                f.write('')
+
+        config = self.getCfgFile(fileName)
+        for key, value in kwargs.items():
+            config[key] = value
+
+        with open(fileName, 'w') as cfg:
+            config.write(cfg)
+
+    def getCfgFile(self, fileName) -> configparser.ConfigParser:
+        config = configparser.ConfigParser()
+        config.read(fileName)
+        return config

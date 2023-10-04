@@ -79,27 +79,6 @@
         <number>19</number>
        </property>
        <item>
-        <widget class="QPushButton" name="btn_menu">
-         <property name="styleSheet">
-          <string notr="true">QPushButton{border: 0}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset>
-           <activeon>:/matriculas/img/menu_white.png</activeon>
-          </iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>26</width>
-           <height>23</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QWidget" name="widget_11" native="true">
          <property name="styleSheet">
           <string notr="true">QPushButton{border: 0}</string>
@@ -1101,17 +1080,64 @@ QLineEdit:hover{background-color: #e5e5e5}
                    </property>
                   </widget>
                  </item>
+                 <item row="4" column="1">
+                  <widget class="QComboBox" name="entry_matriculas_status_matricula">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="layoutDirection">
+                    <enum>Qt::LeftToRight</enum>
+                   </property>
+                   <property name="autoFillBackground">
+                    <bool>false</bool>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
+                   <property name="sizeAdjustPolicy">
+                    <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>ATIVO</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>INATIVO</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_categoria_31">
+                   <property name="minimumSize">
+                    <size>
+                     <width>137</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Yu Gothic UI</family>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>dia de vencimento:</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
                  <item row="6" column="1">
                   <widget class="QTextEdit" name="entry_matriculas_obs">
                    <property name="styleSheet">
-                    <string notr="true">QTextEdit {
-	background-color: &quot;white&quot;;
-	border: 0
-}
-
-QTextEdit:hover {
-	background-color: #e5e5e5;
-}</string>
+                    <string notr="true"/>
                    </property>
                    <property name="html">
                     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -1138,8 +1164,8 @@ p, li { white-space: pre-wrap; }
                    </property>
                   </spacer>
                  </item>
-                 <item row="2" column="0">
-                  <widget class="QLabel" name="label_categoria_31">
+                 <item row="5" column="0">
+                  <widget class="QLabel" name="label_categoria_40">
                    <property name="minimumSize">
                     <size>
                      <width>137</width>
@@ -1153,15 +1179,15 @@ p, li { white-space: pre-wrap; }
                     </font>
                    </property>
                    <property name="text">
-                    <string>dia de vencimento:</string>
+                    <string>status mensalidade:</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                    </property>
                   </widget>
                  </item>
-                 <item row="4" column="1">
-                  <widget class="QComboBox" name="entry_matriculas_status_matricula">
+                 <item row="5" column="1">
+                  <widget class="QComboBox" name="entry_matriculas_status_mensalidade">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -1175,26 +1201,29 @@ p, li { white-space: pre-wrap; }
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background-color: &quot;white&quot;;
-	border: 0;
-}
-
-QComboBox:hover {
-	background-color: #e5e5e5;
-}</string>
+                    <string notr="true"/>
                    </property>
                    <property name="sizeAdjustPolicy">
                     <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
                    </property>
                    <item>
                     <property name="text">
-                     <string>ATIVO</string>
+                     <string>PAGO</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>INATIVO</string>
+                     <string>PENDENTE</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>VENCIDO</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>INADIMPLENTE</string>
                     </property>
                    </item>
                   </widget>
@@ -1214,14 +1243,7 @@ QComboBox:hover {
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background-color: &quot;white&quot;;
-	border: 0;
-}
-
-QComboBox:hover {
-	background-color: #e5e5e5;
-}</string>
+                    <string notr="true"/>
                    </property>
                    <property name="sizeAdjustPolicy">
                     <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
@@ -1378,77 +1400,6 @@ QComboBox:hover {
                    </item>
                   </widget>
                  </item>
-                 <item row="5" column="0">
-                  <widget class="QLabel" name="label_categoria_40">
-                   <property name="minimumSize">
-                    <size>
-                     <width>137</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="font">
-                    <font>
-                     <family>Yu Gothic UI</family>
-                     <pointsize>12</pointsize>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>status mensalidade:</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="1">
-                  <widget class="QComboBox" name="entry_matriculas_status_mensalidade">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="layoutDirection">
-                    <enum>Qt::LeftToRight</enum>
-                   </property>
-                   <property name="autoFillBackground">
-                    <bool>false</bool>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background-color: &quot;white&quot;;
-	border: 0;
-}
-
-QComboBox:hover {
-	background-color: #e5e5e5;
-}</string>
-                   </property>
-                   <property name="sizeAdjustPolicy">
-                    <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>PAGO</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>PENDENTE</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>VENCIDO</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>INADIMPLENTE</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
                 </layout>
                </widget>
               </item>
@@ -1547,14 +1498,7 @@ QLineEdit:hover{background-color: #e5e5e5}
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background-color: &quot;white&quot;;
-	border: 0;
-}
-
-QComboBox:hover {
-	background-color: #e5e5e5;
-}</string>
+                    <string notr="true"/>
                    </property>
                    <property name="sizeAdjustPolicy">
                     <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
@@ -1586,14 +1530,7 @@ QComboBox:hover {
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">QComboBox {
-	background-color: &quot;white&quot;;
-	border: 0;
-}
-
-QComboBox:hover {
-	background-color: #e5e5e5;
-}</string>
+                    <string notr="true"/>
                    </property>
                    <property name="sizeAdjustPolicy">
                     <enum>QComboBox::AdjustToContentsOnFirstShow</enum>
@@ -1616,8 +1553,6 @@ QComboBox:hover {
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QGroupBox{color: rgb(104, 104, 104)}
-QLineEdit{background-color:white;border:0}
-QLineEdit:hover{background-color: #e5e5e5}
 </string>
                 </property>
                 <property name="title">

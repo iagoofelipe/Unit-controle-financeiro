@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Matriculas.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -58,16 +58,6 @@ class Ui_Matriculas(object):
         self.verticalLayout_2.setSpacing(5)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout_2.setContentsMargins(0, 11, 0, 19)
-        self.btn_menu = QPushButton(self.wid_sidebar)
-        self.btn_menu.setObjectName(u"btn_menu")
-        self.btn_menu.setStyleSheet(u"QPushButton{border: 0}")
-        icon = QIcon()
-        icon.addFile(u":/matriculas/img/menu_white.png", QSize(), QIcon.Active, QIcon.On)
-        self.btn_menu.setIcon(icon)
-        self.btn_menu.setIconSize(QSize(26, 23))
-
-        self.verticalLayout_2.addWidget(self.btn_menu)
-
         self.widget_11 = QWidget(self.wid_sidebar)
         self.widget_11.setObjectName(u"widget_11")
         self.widget_11.setStyleSheet(u"QPushButton{border: 0}")
@@ -77,9 +67,9 @@ class Ui_Matriculas(object):
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
         self.btn_config = QPushButton(self.widget_11)
         self.btn_config.setObjectName(u"btn_config")
-        icon1 = QIcon()
-        icon1.addFile(u":/matriculas/img/engrenagem_white.png", QSize(), QIcon.Normal, QIcon.On)
-        self.btn_config.setIcon(icon1)
+        icon = QIcon()
+        icon.addFile(u":/matriculas/img/engrenagem_white.png", QSize(), QIcon.Normal, QIcon.On)
+        self.btn_config.setIcon(icon)
         self.btn_config.setIconSize(QSize(26, 43))
         self.btn_config.setCheckable(False)
         self.btn_config.setChecked(False)
@@ -90,9 +80,9 @@ class Ui_Matriculas(object):
         self.btn_sair.setObjectName(u"btn_sair")
         self.btn_sair.setLayoutDirection(Qt.LeftToRight)
         self.btn_sair.setStyleSheet(u"")
-        icon2 = QIcon()
-        icon2.addFile(u":/matriculas/img/matriculas/sair.png", QSize(), QIcon.Normal, QIcon.On)
-        self.btn_sair.setIcon(icon2)
+        icon1 = QIcon()
+        icon1.addFile(u":/matriculas/img/matriculas/sair.png", QSize(), QIcon.Normal, QIcon.On)
+        self.btn_sair.setIcon(icon1)
         self.btn_sair.setIconSize(QSize(40, 40))
         self.btn_sair.setFlat(True)
 
@@ -168,9 +158,9 @@ class Ui_Matriculas(object):
         self.reg_btn_atualizar.setObjectName(u"reg_btn_atualizar")
         self.reg_btn_atualizar.setMaximumSize(QSize(19, 16777215))
         self.reg_btn_atualizar.setStyleSheet(u"border:0;")
-        icon3 = QIcon()
-        icon3.addFile(u":/matriculas/img/recarregar.png", QSize(), QIcon.Normal, QIcon.On)
-        self.reg_btn_atualizar.setIcon(icon3)
+        icon2 = QIcon()
+        icon2.addFile(u":/matriculas/img/recarregar.png", QSize(), QIcon.Normal, QIcon.On)
+        self.reg_btn_atualizar.setIcon(icon2)
 
         self.horizontalLayout_2.addWidget(self.reg_btn_atualizar)
 
@@ -535,22 +525,18 @@ class Ui_Matriculas(object):
 
         self.gridLayout_13.addWidget(self.label_categoria_39, 4, 0, 1, 1)
 
-        self.entry_matriculas_obs = QTextEdit(self.groupBox_dados_alunos)
-        self.entry_matriculas_obs.setObjectName(u"entry_matriculas_obs")
-        self.entry_matriculas_obs.setStyleSheet(u"QTextEdit {\n"
-"	background-color: \"white\";\n"
-"	border: 0\n"
-"}\n"
-"\n"
-"QTextEdit:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
+        self.entry_matriculas_status_matricula = QComboBox(self.groupBox_dados_alunos)
+        self.entry_matriculas_status_matricula.addItem("")
+        self.entry_matriculas_status_matricula.addItem("")
+        self.entry_matriculas_status_matricula.setObjectName(u"entry_matriculas_status_matricula")
+        sizePolicy.setHeightForWidth(self.entry_matriculas_status_matricula.sizePolicy().hasHeightForWidth())
+        self.entry_matriculas_status_matricula.setSizePolicy(sizePolicy)
+        self.entry_matriculas_status_matricula.setLayoutDirection(Qt.LeftToRight)
+        self.entry_matriculas_status_matricula.setAutoFillBackground(False)
+        self.entry_matriculas_status_matricula.setStyleSheet(u"")
+        self.entry_matriculas_status_matricula.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
 
-        self.gridLayout_13.addWidget(self.entry_matriculas_obs, 6, 1, 1, 1)
-
-        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.gridLayout_13.addItem(self.verticalSpacer_8, 7, 1, 1, 1)
+        self.gridLayout_13.addWidget(self.entry_matriculas_status_matricula, 4, 1, 1, 1)
 
         self.label_categoria_31 = QLabel(self.groupBox_dados_alunos)
         self.label_categoria_31.setObjectName(u"label_categoria_31")
@@ -560,25 +546,38 @@ class Ui_Matriculas(object):
 
         self.gridLayout_13.addWidget(self.label_categoria_31, 2, 0, 1, 1)
 
-        self.entry_matriculas_status_matricula = QComboBox(self.groupBox_dados_alunos)
-        self.entry_matriculas_status_matricula.addItem("")
-        self.entry_matriculas_status_matricula.addItem("")
-        self.entry_matriculas_status_matricula.setObjectName(u"entry_matriculas_status_matricula")
-        sizePolicy.setHeightForWidth(self.entry_matriculas_status_matricula.sizePolicy().hasHeightForWidth())
-        self.entry_matriculas_status_matricula.setSizePolicy(sizePolicy)
-        self.entry_matriculas_status_matricula.setLayoutDirection(Qt.LeftToRight)
-        self.entry_matriculas_status_matricula.setAutoFillBackground(False)
-        self.entry_matriculas_status_matricula.setStyleSheet(u"QComboBox {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"}\n"
-"\n"
-"QComboBox:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
-        self.entry_matriculas_status_matricula.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
+        self.entry_matriculas_obs = QTextEdit(self.groupBox_dados_alunos)
+        self.entry_matriculas_obs.setObjectName(u"entry_matriculas_obs")
+        self.entry_matriculas_obs.setStyleSheet(u"")
 
-        self.gridLayout_13.addWidget(self.entry_matriculas_status_matricula, 4, 1, 1, 1)
+        self.gridLayout_13.addWidget(self.entry_matriculas_obs, 6, 1, 1, 1)
+
+        self.verticalSpacer_8 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_13.addItem(self.verticalSpacer_8, 7, 1, 1, 1)
+
+        self.label_categoria_40 = QLabel(self.groupBox_dados_alunos)
+        self.label_categoria_40.setObjectName(u"label_categoria_40")
+        self.label_categoria_40.setMinimumSize(QSize(137, 0))
+        self.label_categoria_40.setFont(font1)
+        self.label_categoria_40.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.gridLayout_13.addWidget(self.label_categoria_40, 5, 0, 1, 1)
+
+        self.entry_matriculas_status_mensalidade = QComboBox(self.groupBox_dados_alunos)
+        self.entry_matriculas_status_mensalidade.addItem("")
+        self.entry_matriculas_status_mensalidade.addItem("")
+        self.entry_matriculas_status_mensalidade.addItem("")
+        self.entry_matriculas_status_mensalidade.addItem("")
+        self.entry_matriculas_status_mensalidade.setObjectName(u"entry_matriculas_status_mensalidade")
+        sizePolicy.setHeightForWidth(self.entry_matriculas_status_mensalidade.sizePolicy().hasHeightForWidth())
+        self.entry_matriculas_status_mensalidade.setSizePolicy(sizePolicy)
+        self.entry_matriculas_status_mensalidade.setLayoutDirection(Qt.LeftToRight)
+        self.entry_matriculas_status_mensalidade.setAutoFillBackground(False)
+        self.entry_matriculas_status_mensalidade.setStyleSheet(u"")
+        self.entry_matriculas_status_mensalidade.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
+
+        self.gridLayout_13.addWidget(self.entry_matriculas_status_mensalidade, 5, 1, 1, 1)
 
         self.entry_matriculas_dia_vencimento = QComboBox(self.groupBox_dados_alunos)
         self.entry_matriculas_dia_vencimento.addItem("")
@@ -616,47 +615,10 @@ class Ui_Matriculas(object):
         self.entry_matriculas_dia_vencimento.setSizePolicy(sizePolicy)
         self.entry_matriculas_dia_vencimento.setLayoutDirection(Qt.LeftToRight)
         self.entry_matriculas_dia_vencimento.setAutoFillBackground(False)
-        self.entry_matriculas_dia_vencimento.setStyleSheet(u"QComboBox {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"}\n"
-"\n"
-"QComboBox:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
+        self.entry_matriculas_dia_vencimento.setStyleSheet(u"")
         self.entry_matriculas_dia_vencimento.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
 
         self.gridLayout_13.addWidget(self.entry_matriculas_dia_vencimento, 2, 1, 1, 1)
-
-        self.label_categoria_40 = QLabel(self.groupBox_dados_alunos)
-        self.label_categoria_40.setObjectName(u"label_categoria_40")
-        self.label_categoria_40.setMinimumSize(QSize(137, 0))
-        self.label_categoria_40.setFont(font1)
-        self.label_categoria_40.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-
-        self.gridLayout_13.addWidget(self.label_categoria_40, 5, 0, 1, 1)
-
-        self.entry_matriculas_status_mensalidade = QComboBox(self.groupBox_dados_alunos)
-        self.entry_matriculas_status_mensalidade.addItem("")
-        self.entry_matriculas_status_mensalidade.addItem("")
-        self.entry_matriculas_status_mensalidade.addItem("")
-        self.entry_matriculas_status_mensalidade.addItem("")
-        self.entry_matriculas_status_mensalidade.setObjectName(u"entry_matriculas_status_mensalidade")
-        sizePolicy.setHeightForWidth(self.entry_matriculas_status_mensalidade.sizePolicy().hasHeightForWidth())
-        self.entry_matriculas_status_mensalidade.setSizePolicy(sizePolicy)
-        self.entry_matriculas_status_mensalidade.setLayoutDirection(Qt.LeftToRight)
-        self.entry_matriculas_status_mensalidade.setAutoFillBackground(False)
-        self.entry_matriculas_status_mensalidade.setStyleSheet(u"QComboBox {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"}\n"
-"\n"
-"QComboBox:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
-        self.entry_matriculas_status_mensalidade.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
-
-        self.gridLayout_13.addWidget(self.entry_matriculas_status_mensalidade, 5, 1, 1, 1)
 
 
         self.gridLayout_9.addWidget(self.groupBox_dados_alunos, 2, 0, 1, 1)
@@ -699,14 +661,7 @@ class Ui_Matriculas(object):
         self.entry_matriculas_aluno.setMinimumSize(QSize(257, 0))
         self.entry_matriculas_aluno.setLayoutDirection(Qt.LeftToRight)
         self.entry_matriculas_aluno.setAutoFillBackground(False)
-        self.entry_matriculas_aluno.setStyleSheet(u"QComboBox {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"}\n"
-"\n"
-"QComboBox:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
+        self.entry_matriculas_aluno.setStyleSheet(u"")
         self.entry_matriculas_aluno.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
 
         self.gridLayout_15.addWidget(self.entry_matriculas_aluno, 2, 1, 1, 1)
@@ -717,14 +672,7 @@ class Ui_Matriculas(object):
         self.entry_matriculas_turma.setSizePolicy(sizePolicy)
         self.entry_matriculas_turma.setLayoutDirection(Qt.LeftToRight)
         self.entry_matriculas_turma.setAutoFillBackground(False)
-        self.entry_matriculas_turma.setStyleSheet(u"QComboBox {\n"
-"	background-color: \"white\";\n"
-"	border: 0;\n"
-"}\n"
-"\n"
-"QComboBox:hover {\n"
-"	background-color: #e5e5e5;\n"
-"}")
+        self.entry_matriculas_turma.setStyleSheet(u"")
         self.entry_matriculas_turma.setSizeAdjustPolicy(QComboBox.AdjustToContentsOnFirstShow)
 
         self.gridLayout_15.addWidget(self.entry_matriculas_turma, 3, 1, 1, 1)
@@ -737,8 +685,6 @@ class Ui_Matriculas(object):
         self.groupBox_dados_responsavel.setMaximumSize(QSize(500, 16777215))
         self.groupBox_dados_responsavel.setLayoutDirection(Qt.LeftToRight)
         self.groupBox_dados_responsavel.setStyleSheet(u"QGroupBox{color: rgb(104, 104, 104)}\n"
-"QLineEdit{background-color:white;border:0}\n"
-"QLineEdit:hover{background-color: #e5e5e5}\n"
 "")
         self.groupBox_dados_responsavel.setFlat(True)
         self.gridLayout_14 = QGridLayout(self.groupBox_dados_responsavel)
@@ -805,7 +751,6 @@ class Ui_Matriculas(object):
         self.actionlembrar.setText(QCoreApplication.translate("Matriculas", u"Lembre de mim", None))
         self.actionversao.setText(QCoreApplication.translate("Matriculas", u"vers\u00e3o", None))
         self.menu_sair.setText(QCoreApplication.translate("Matriculas", u"sair", None))
-        self.btn_menu.setText("")
         self.btn_config.setText("")
         self.btn_sair.setText("")
         self.user_name.setText(QCoreApplication.translate("Matriculas", u"USUARIO", None))
@@ -851,15 +796,21 @@ class Ui_Matriculas(object):
         self.groupBox_dados_alunos.setTitle(QCoreApplication.translate("Matriculas", u"Dados de Matr\u00edcula", None))
         self.label_categoria_36.setText(QCoreApplication.translate("Matriculas", u"observa\u00e7\u00f5es:", None))
         self.label_categoria_39.setText(QCoreApplication.translate("Matriculas", u"status matr\u00edcula:", None))
+        self.entry_matriculas_status_matricula.setItemText(0, QCoreApplication.translate("Matriculas", u"ATIVO", None))
+        self.entry_matriculas_status_matricula.setItemText(1, QCoreApplication.translate("Matriculas", u"INATIVO", None))
+
+        self.label_categoria_31.setText(QCoreApplication.translate("Matriculas", u"dia de vencimento:", None))
         self.entry_matriculas_obs.setHtml(QCoreApplication.translate("Matriculas", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", None))
         self.entry_matriculas_obs.setPlaceholderText("")
-        self.label_categoria_31.setText(QCoreApplication.translate("Matriculas", u"dia de vencimento:", None))
-        self.entry_matriculas_status_matricula.setItemText(0, QCoreApplication.translate("Matriculas", u"ATIVO", None))
-        self.entry_matriculas_status_matricula.setItemText(1, QCoreApplication.translate("Matriculas", u"INATIVO", None))
+        self.label_categoria_40.setText(QCoreApplication.translate("Matriculas", u"status mensalidade:", None))
+        self.entry_matriculas_status_mensalidade.setItemText(0, QCoreApplication.translate("Matriculas", u"PAGO", None))
+        self.entry_matriculas_status_mensalidade.setItemText(1, QCoreApplication.translate("Matriculas", u"PENDENTE", None))
+        self.entry_matriculas_status_mensalidade.setItemText(2, QCoreApplication.translate("Matriculas", u"VENCIDO", None))
+        self.entry_matriculas_status_mensalidade.setItemText(3, QCoreApplication.translate("Matriculas", u"INADIMPLENTE", None))
 
         self.entry_matriculas_dia_vencimento.setItemText(0, QCoreApplication.translate("Matriculas", u"1", None))
         self.entry_matriculas_dia_vencimento.setItemText(1, QCoreApplication.translate("Matriculas", u"2", None))
@@ -891,12 +842,6 @@ class Ui_Matriculas(object):
         self.entry_matriculas_dia_vencimento.setItemText(27, QCoreApplication.translate("Matriculas", u"28", None))
         self.entry_matriculas_dia_vencimento.setItemText(28, QCoreApplication.translate("Matriculas", u"29", None))
         self.entry_matriculas_dia_vencimento.setItemText(29, QCoreApplication.translate("Matriculas", u"30", None))
-
-        self.label_categoria_40.setText(QCoreApplication.translate("Matriculas", u"status mensalidade:", None))
-        self.entry_matriculas_status_mensalidade.setItemText(0, QCoreApplication.translate("Matriculas", u"PAGO", None))
-        self.entry_matriculas_status_mensalidade.setItemText(1, QCoreApplication.translate("Matriculas", u"PENDENTE", None))
-        self.entry_matriculas_status_mensalidade.setItemText(2, QCoreApplication.translate("Matriculas", u"VENCIDO", None))
-        self.entry_matriculas_status_mensalidade.setItemText(3, QCoreApplication.translate("Matriculas", u"INADIMPLENTE", None))
 
         self.groupBox_matricula.setTitle(QCoreApplication.translate("Matriculas", u"Dados do Aluno", None))
         self.label_1.setText(QCoreApplication.translate("Matriculas", u"aluno:", None))
