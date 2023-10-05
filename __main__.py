@@ -3,9 +3,8 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 import sys, logging, os
 
 # módulos locais
-from Include.model import MainModel
-from Include.controller import MainController
-from Include.view import MainView
+from utils import MainModel, MainController, MainView
+from static import LOGS
 
 class App(QApplication):
     def __init__(self, sys_argv):
@@ -17,11 +16,10 @@ class App(QApplication):
 
 
 if __name__ == '__main__':
-    log_file = "logs.log"
+    if not os.path.exists(LOGS.PATH):
+        os.mkdir(LOGS.PATH)
 
-    if os.path.exists(log_file):
-        os.remove(log_file)
-    logging.basicConfig(level=logging.DEBUG, filename=log_file, format="%(asctime)s - %(levelname)s - %(message)s")
-    
+    logging.basicConfig(level=LOGS.LEVEL, filename=LOGS.PATH+"main.log", format="%(asctime)s - %(levelname)s - %(message)s")
+    logging.debug("iniciando App")
     app = App(sys.argv)
     sys.exit(app.exec())

@@ -2,8 +2,13 @@ from requests.exceptions import ConnectionError
 import requests
 
 class Requests:
+    fail = False
+
     def __init__(self):
-        self.getDefaults()
+        try:
+            self.getDefaults()
+        except:
+            self.fail = True
     
     @property
     def defaults(self) -> dict:

@@ -4,12 +4,12 @@
     <file>img/logo_pedras_vivas_maior.png</file>
   </qresource>
   <qresource prefix="matriculas">
+    <file>img/home/sair.png</file>
+    <file>img/home/user_wt.png</file>
     <file>img/recarregar.png</file>
     <file>img/menu_black.png</file>
     <file>img/menu_white.png</file>
     <file>img/engrenagem_white.png</file>
-    <file>img/matriculas/sair.png</file>
-    <file>img/matriculas/user_wt.png</file>
     <file>img/engrenagem_black.png</file>
   </qresource>
   <qresource prefix="login">

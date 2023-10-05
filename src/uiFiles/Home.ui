@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Matriculas</class>
- <widget class="QMainWindow" name="Matriculas">
+ <class>Home</class>
+ <widget class="QMainWindow" name="Home">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1616</width>
+    <width>900</width>
     <height>700</height>
    </rect>
   </property>
@@ -136,7 +136,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normalon>:/matriculas/img/matriculas/sair.png</normalon>
+              <normalon>:/matriculas/img/home/sair.png</normalon>
              </iconset>
             </property>
             <property name="iconSize">
@@ -677,7 +677,7 @@ p, li { white-space: pre-wrap; }
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QComboBox" name="entry_matriculas_mes_mensalidade">
+                     <widget class="QComboBox" name="entry_home_mes_mensalidade">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -759,7 +759,7 @@ p, li { white-space: pre-wrap; }
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="btn_matriculas_salvar">
+                     <widget class="QPushButton" name="btn_home_salvar">
                       <property name="minimumSize">
                        <size>
                         <width>71</width>
@@ -832,7 +832,7 @@ p, li { white-space: pre-wrap; }
                   </widget>
                  </item>
                  <item>
-                  <widget class="QListView" name="out_matriculas_pendentes">
+                  <widget class="QListView" name="out_home_pendentes">
                    <property name="minimumSize">
                     <size>
                      <width>300</width>
@@ -901,7 +901,7 @@ p, li { white-space: pre-wrap; }
                   </widget>
                  </item>
                  <item>
-                  <widget class="QListView" name="out_matriculas_vencidos">
+                  <widget class="QListView" name="out_home_vencidos">
                    <property name="minimumSize">
                     <size>
                      <width>300</width>
@@ -970,7 +970,7 @@ p, li { white-space: pre-wrap; }
                   </widget>
                  </item>
                  <item>
-                  <widget class="QListView" name="out_matriculas_inadimplentes">
+                  <widget class="QListView" name="out_home_inadimplentes">
                    <property name="minimumSize">
                     <size>
                      <width>300</width>
@@ -1080,7 +1080,7 @@ QLineEdit:hover{background-color: #e5e5e5}
                   </widget>
                  </item>
                  <item row="4" column="1">
-                  <widget class="QComboBox" name="entry_matriculas_status_matricula">
+                  <widget class="QComboBox" name="entry_home_status_matricula">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -1134,7 +1134,7 @@ QLineEdit:hover{background-color: #e5e5e5}
                   </widget>
                  </item>
                  <item row="6" column="1">
-                  <widget class="QTextEdit" name="entry_matriculas_obs">
+                  <widget class="QTextEdit" name="entry_home_obs">
                    <property name="styleSheet">
                     <string notr="true"/>
                    </property>
@@ -1186,7 +1186,7 @@ p, li { white-space: pre-wrap; }
                   </widget>
                  </item>
                  <item row="5" column="1">
-                  <widget class="QComboBox" name="entry_matriculas_status_mensalidade">
+                  <widget class="QComboBox" name="entry_home_status_mensalidade">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -1228,7 +1228,7 @@ p, li { white-space: pre-wrap; }
                   </widget>
                  </item>
                  <item row="2" column="1">
-                  <widget class="QComboBox" name="entry_matriculas_dia_vencimento">
+                  <widget class="QComboBox" name="entry_home_dia_vencimento">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -1489,7 +1489,7 @@ QLineEdit:hover{background-color: #e5e5e5}
                   </widget>
                  </item>
                  <item row="2" column="1">
-                  <widget class="QComboBox" name="entry_matriculas_aluno">
+                  <widget class="QComboBox" name="entry_home_aluno">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -1527,7 +1527,7 @@ QLineEdit:hover{background-color: #e5e5e5}
                   </widget>
                  </item>
                  <item row="3" column="1">
-                  <widget class="QComboBox" name="entry_matriculas_turma">
+                  <widget class="QComboBox" name="entry_home_turma">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                      <horstretch>0</horstretch>
@@ -1602,7 +1602,7 @@ QLineEdit:hover{background-color: #e5e5e5}
                   </widget>
                  </item>
                  <item row="2" column="1">
-                  <widget class="QLineEdit" name="entry_matriculas_contato">
+                  <widget class="QLineEdit" name="entry_home_contato">
                    <property name="layoutDirection">
                     <enum>Qt::LeftToRight</enum>
                    </property>
@@ -1634,7 +1634,7 @@ QLineEdit:hover{background-color: #e5e5e5}
                   </widget>
                  </item>
                  <item row="0" column="1">
-                  <widget class="QLineEdit" name="entry_matriculas_responsavel"/>
+                  <widget class="QLineEdit" name="entry_home_responsavel"/>
                  </item>
                 </layout>
                </widget>
