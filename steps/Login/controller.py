@@ -33,11 +33,20 @@ class ControllerLogin(QObject):
         user = self._model.user
         password = self._model.password
 
-        try:
-            self._model.users[user] = password
-            self.accessAuthorized.emit(True)
-            return True
+        if user in self._model.users:
+            if self._model.users[user]['password'] == password:
+                self._main_model.username = self._model.users[user]['username']
+                self.accessAuthorized.emit(True)
+                return True
         
-        except KeyError:
-            self.accessAuthorized.emit(False)
-            return False
+        self.accessAuthorized.emit(False)
+        return False
+
+        # try:
+        #     self._model.users[user] = password
+        #     self.accessAuthorized.emit(True)
+        #     return True
+        
+        # except KeyError:
+        #     self.accessAuthorized.emit(False)
+        #     return False

@@ -24,6 +24,11 @@ class ViewLogin(QObject, Ui_Login):
         self._model = ModelLogin(self)
         self._controller = ControllerLogin(self)
 
+        # if self._model.remember:
+        #     if self._controller.checkUser():
+        #         self._main_view.setUiByName("home")
+        #         return
+            
         # sinais e slots
         self._controller.threadFinished.connect(self.on_threadFinished)
         self._controller.accessAuthorized.connect(self.on_accessAuthorized)

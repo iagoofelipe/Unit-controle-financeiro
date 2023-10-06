@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'Config.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.1
+## Created by: Qt User Interface Compiler version 6.5.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -24,7 +24,7 @@ class Ui_Config(object):
     def setupUi(self, Config):
         if not Config.objectName():
             Config.setObjectName(u"Config")
-        Config.resize(465, 403)
+        Config.resize(506, 403)
         Config.setMinimumSize(QSize(0, 0))
         self.centralwidget = QWidget(Config)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -108,6 +108,11 @@ class Ui_Config(object):
 
         self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.label_5)
 
+        self.limpar_ao_registrar = QCheckBox(self.group_opcionais)
+        self.limpar_ao_registrar.setObjectName(u"limpar_ao_registrar")
+
+        self.formLayout_2.setWidget(4, QFormLayout.SpanningRole, self.limpar_ao_registrar)
+
 
         self.verticalLayout.addWidget(self.group_opcionais)
 
@@ -161,6 +166,7 @@ class Ui_Config(object):
         self.label_10.setText(QCoreApplication.translate("Config", u"per\u00edodo para atualiza\u00e7\u00e3o de dados (ms)", None))
         self.regTable_lengh.setPrefix("")
         self.label_5.setText(QCoreApplication.translate("Config", u"limite de requisi\u00e7\u00f5es para tabela Registros (diretamente proporicional ao tempo)", None))
+        self.limpar_ao_registrar.setText(QCoreApplication.translate("Config", u"limpar dados ap\u00f3s registrar", None))
         self.btn_cancelar.setText(QCoreApplication.translate("Config", u"cancelar", None))
         self.btn_aplicar.setText(QCoreApplication.translate("Config", u"aplicar", None))
     # retranslateUi

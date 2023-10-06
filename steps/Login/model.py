@@ -19,8 +19,8 @@ class ModelLogin(QObject):
 
         # métodos gerais
         # métodos privados
-        self._user:str = self._main_model.cfg_default['LOGIN']['user']
-        self._password:str = self._main_model.cfg_default['LOGIN']['password']
+        self._user:str = self._main_model.crypto.decode(self._main_model.cfg_default['LOGIN']['user'])
+        self._password:str = self._main_model.crypto.decode(self._main_model.cfg_default['LOGIN']['password'])
         self._remember:bool = self._main_model.cfg_default['LOGIN']['remember'] == "True"
     
     #-------------------------------------
@@ -34,10 +34,10 @@ class ModelLogin(QObject):
         """ definindo valores de usuário e senha """
         self._users = {}
 
-        for ide, user, password in db_values:
+        for ide, user, password, username in db_values:
             user = self._main_model.crypto.decode(user)
             password = self._main_model.crypto.decode(password)
-            self._users[user] = password
+            self._users[user] = {"password":password, "username": username}
 
     @property
     def user(self):

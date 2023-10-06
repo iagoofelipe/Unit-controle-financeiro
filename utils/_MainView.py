@@ -8,6 +8,7 @@ from steps.Iniciar import ViewIniciar
 from steps.Login import ViewLogin
 from steps.Error import ViewError
 from steps.Home import ViewHome
+from steps.config import ViewConfig
 
 class MainView(QMainWindow):
     def __init__(self, main_model, main_controller):
@@ -24,7 +25,7 @@ class MainView(QMainWindow):
     
     def setUiByName(self, uiName: str):
         uiName = uiName.lower()
-        uis = dict(iniciar=ViewIniciar, login=ViewLogin, error=ViewError, home=ViewHome)
+        uis = dict(iniciar=ViewIniciar, login=ViewLogin, error=ViewError, home=ViewHome, config=ViewConfig)
         
         logging.debug(f"alterando ui principal para {uiName.upper()}")
         if uiName not in uis:

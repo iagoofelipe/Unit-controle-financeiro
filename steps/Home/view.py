@@ -29,9 +29,15 @@ class ViewHome(QObject, Ui_Home, App):
         
         # métodos privados
         self._main_view.setWindowTitle(WINDOW_TITLE)
+        self.user_name.setText(self._model.username)
 
         # sinais e slots
         self._controller.threadFinished.connect(self.on_threadFinished)
+        self._model.logoutRequired.connect(self._model.on_logoutRequired)
+        self._model.logoutRequired.connect(self.on_logoutRequired)
+
+        self.btn_sair.clicked.connect(lambda: self._model.logoutRequired.emit())
+        self.btn_config.clicked.connect(lambda: self._main_view.setUiByName("config"))
 
         # camadas do módulo atual
         self._registros = ViewRegistros(self)
@@ -39,3 +45,7 @@ class ViewHome(QObject, Ui_Home, App):
     @Slot(dict)
     def on_threadFinished(self, values: dict):
         """ thread inicial da interface """
+
+    @Slot()
+    def on_logoutRequired(self):
+        self._main_view.setUiByName("login")

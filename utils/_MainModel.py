@@ -9,6 +9,7 @@ class MainModel(QObject):
     database = None # set by ControllerIniciar
     requests = None # set by ControllerIniciar
     crypto = None # set by ControllerIniciar
+    username = None # set by ControllerLogin
     errorMessage = "UNDEFINED_ERROR"
 
     def __init__(self):
